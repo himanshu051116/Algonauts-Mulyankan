@@ -8,7 +8,7 @@ Mulyankan was built around a simple problem: a proposal score is not very useful
 
 The project is designed around the Ministry of Coal Science & Technology proposal workflow and the practical needs of technical review: traceability, repeatability, abstention when evidence is missing, and a clear audit trail.
 
-> Mulyankan is a decision-support tool, not an autonomous proposal selector. The bundled ML model uses brochure-derived supervision based on ministry guidlines which were available to the project.
+> Mulyankan is a decision-support tool, not an autonomous proposal selector. The bundled ML model uses brochure derived supervision based on Ministry of Coal guidelines available to the project.
 
 ## What we built
 
