@@ -1,5 +1,5 @@
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 import arq
 from pydantic import model_validator
@@ -135,8 +135,13 @@ class Settings(BaseSettings):
         return arq.connections.RedisSettings(
             host=parsed.hostname or "localhost",
             port=parsed.port or 6379,
-            password=parsed.password,
+            username=unquote(parsed.username) if parsed.username else None,
+            password=unquote(parsed.password) if parsed.password else None,
             database=int(parsed.path.lstrip("/")) if parsed.path else 0,
+            # Hosted Redis providers commonly use a ``rediss://`` URL. ARQ
+            # receives individual connection settings, so preserve the URL's
+            # TLS requirement instead of silently attempting plaintext Redis.
+            ssl=parsed.scheme.lower() == "rediss",
         )
 
     @model_validator(mode="after")

@@ -49,3 +49,5 @@ data/training/moc-brochure-bootstrap-v1.jsonl
 
 # Local package-manager cache
 /.npm-cache/
+
+.vercel

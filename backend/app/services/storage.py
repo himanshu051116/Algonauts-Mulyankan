@@ -90,6 +90,10 @@ def _get_client(
         region_name=settings.storage_region,
         config=Config(
             signature_version="s3v4",
+            # S3-compatible endpoints such as Supabase Storage expose their
+            # API beneath a path. Virtual-hosted bucket names would generate
+            # an invalid hostname for those endpoints.
+            s3={"addressing_style": "path"},
         ),
     )
 

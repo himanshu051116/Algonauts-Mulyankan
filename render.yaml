@@ -1,0 +1,52 @@
+services:
+  - type: web
+    name: algonauts-mulyankan-demo-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    dockerCommand: python -m scripts.run_free_demo_service
+    healthCheckPath: /health/ready
+    autoDeployTrigger: checksPass
+    buildFilter:
+      paths:
+        - backend/**
+        - migrations/**
+        - data/**
+        - render.yaml
+    envVars:
+      - key: ENVIRONMENT
+        value: demo
+      - key: AUTH_ALLOW_LOCAL_JWT
+        value: "false"
+      - key: CORS_ORIGINS
+        value: https://algonauts-mulyankan-import.vercel.app
+      - key: TRUST_PROXY_HEADERS
+        value: "true"
+      - key: METRICS_ENABLED
+        value: "false"
+      - key: MALWARE_SCAN_ENABLED
+        value: "false"
+      - key: STORAGE_BUCKET
+        value: mulyankan-proposals
+      - key: JWT_SECRET
+        generateValue: true
+      - key: AUDIT_EXPORT_SIGNING_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: STORAGE_ENDPOINT
+        sync: false
+      - key: STORAGE_PUBLIC_ENDPOINT
+        sync: false
+      - key: STORAGE_ACCESS_KEY
+        sync: false
+      - key: STORAGE_SECRET_KEY
+        sync: false
+      - key: STORAGE_REGION
+        sync: false
