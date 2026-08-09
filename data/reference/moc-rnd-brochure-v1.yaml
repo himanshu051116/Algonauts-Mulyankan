@@ -1,0 +1,43 @@
+reference_id: moc-rnd-applicant-guidance-brochure-v1
+scheme_code: MOC-ST
+title: "MoC R&D Funding - Applicant Guidance Brochure"
+normalised_on: "2026-07-06"
+source_files:
+  - "Moc Rnd Brochure(1).pdf"
+  - "MoC_RnD_Brochure(1).pdf"
+hard_screening:
+  duration_months: [12, 36]
+  duration_above_months_requires_justification: 24
+  approved_focus_areas:
+    - mining productivity and mechanisation
+    - mine safety and environment
+    - clean coal technologies
+    - waste-to-wealth and utilisation
+    - exploration technologies
+    - indigenisation and import substitution
+  prohibited_budget_items:
+    - land purchase
+    - vehicles
+    - permanent salaries
+    - routine academic studies
+    - foreign travel
+  mandatory_considerations:
+    - coal or energy industry relevance
+    - environmental compliance
+    - safety compliance
+    - DGMS compliance where applicable
+scoring:
+  rubric_file: data/rules/moc-st-100-mark-rubric-v2.yaml
+  total_marks: 100
+  cutoffs:
+    highly_competitive: 80
+    conditional_or_revision: 60
+hybrid_governance:
+  ai_share_range: [0.40, 0.50]
+  expert_share_range: [0.50, 0.60]
+  official_decision_requires_human_review: true
+  preliminary_ml_output_must_be_explainable: true
+  administrators_and_reviewers_only: true
+limitations:
+  - "The brochure defines targets and operating policy, not statistically representative labelled proposals."
+  - "Bootstrap training data may validate software behaviour but cannot validate institutional decision accuracy."

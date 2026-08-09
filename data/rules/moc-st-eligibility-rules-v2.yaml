@@ -1,0 +1,119 @@
+# Ministry of Coal R&D applicant-brochure eligibility rules v2
+# The brochure is a policy/rubric source, not a substitute for an issued scheme guideline.
+rule_version: "2.0"
+scheme_code: "MOC-ST"
+effective_date: "2026-07-06"
+supersedes: "1.0"
+source_document: "MoC R&D Funding – Applicant Guidance Brochure"
+status: "pilot_advisory"
+
+rules:
+  - rule_id: "MOC-ST-V2-ELIG-001"
+    category: "eligibility"
+    field: "institution_eligibility"
+    description: "Applicant must be an academic institution, R&D organisation, startup/innovator, or eligible industry/PSU participant"
+    operator: "in_list"
+    limit_value: ["academic", "research_institute", "startup", "industry", "psu"]
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Who Can Apply"
+
+  - rule_id: "MOC-ST-V2-ELIG-002"
+    category: "eligibility"
+    field: "project_duration"
+    description: "Project duration must be between one and three years"
+    operator: "range"
+    limit_value: "12-36"
+    severity: "error"
+    uncertainty_action: "clarification"
+    source_reference: "Applicant Guidance Brochure, Step 1: Hard Screening"
+
+  - rule_id: "MOC-ST-V2-ELIG-003"
+    category: "eligibility"
+    field: "duration_exception_above_24"
+    description: "Projects longer than two years require substantive justification"
+    operator: "conditional_justification"
+    limit_value: "above_24_months"
+    severity: "exception_review"
+    uncertainty_action: "exception"
+    source_reference: "Applicant Guidance Brochure, Step 1: Hard Screening"
+
+  - rule_id: "MOC-ST-V2-ELIG-004"
+    category: "eligibility"
+    field: "thrust_area_alignment"
+    description: "Proposal must align with an approved coal R&D focus area"
+    operator: "thrust_area_match"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Step 1: Hard Screening"
+
+  - rule_id: "MOC-ST-V2-FIN-001"
+    category: "financial"
+    field: "land_purchase"
+    description: "Project funds must not be used to purchase land"
+    operator: "prohibited"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Step 1: Budget Rules"
+
+  - rule_id: "MOC-ST-V2-FIN-002"
+    category: "financial"
+    field: "staff_vehicles"
+    description: "Project funds must not be used to purchase vehicles"
+    operator: "prohibited"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Step 1: Budget Rules"
+
+  - rule_id: "MOC-ST-V2-FIN-003"
+    category: "financial"
+    field: "permanent_salary"
+    description: "Permanent institutional salaries are not chargeable to the project"
+    operator: "prohibited"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Step 1: Budget Rules"
+
+  - rule_id: "MOC-ST-V2-FIN-004"
+    category: "financial"
+    field: "routine_academic_study"
+    description: "Routine academic studies without coal-industry R&D outcomes are not fundable"
+    operator: "prohibited"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Step 1: Budget Rules"
+
+  - rule_id: "MOC-ST-V2-FIN-005"
+    category: "financial"
+    field: "foreign_travel"
+    description: "Foreign travel is not an allowable use of project funds under the brochure screening rule"
+    operator: "prohibited"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "Applicant Guidance Brochure, Step 1: Budget Rules"
+
+  - rule_id: "MOC-ST-V2-IND-001"
+    category: "industry_relevance"
+    field: "industry_relevance"
+    description: "Proposal must clearly demonstrate benefit to the coal or energy industry"
+    operator: "in_list"
+    limit_value: ["demonstrated"]
+    severity: "error"
+    uncertainty_action: "clarification"
+    source_reference: "Applicant Guidance Brochure, Step 1: Industry Relevance"
+
+  - rule_id: "MOC-ST-V2-COMP-001"
+    category: "compliance"
+    field: "environmental_safety_compliance"
+    description: "Proposal must address applicable environmental, safety, and DGMS requirements"
+    operator: "in_list"
+    limit_value: ["addressed"]
+    severity: "error"
+    uncertainty_action: "clarification"
+    source_reference: "Applicant Guidance Brochure, Step 1: Compliance"

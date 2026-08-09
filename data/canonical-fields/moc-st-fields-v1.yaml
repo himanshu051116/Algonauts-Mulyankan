@@ -1,0 +1,123 @@
+# Canonical structured proposal fields for MOC-ST scheme v1
+# Each field defines how it is extracted, validated, and handled when missing.
+schema_version: moc-st-fields-v1
+scheme_code: MOC-ST
+generated_at: "2026-07-04T20:00:00+05:30"
+
+fields:
+  institution_eligibility:
+    description: Whether the applicant institution is an eligible coal-sector organisation
+    extraction_method: keyword_section_heuristic
+    missing_value_policy: unresolved
+    expected_type: string
+    allowed_values: ["CMPDI", "Coal India", "subsidiary", "academic", "research_institute"]
+
+  pi_qualification:
+    description: Principal investigator's academic/professional qualifications
+    extraction_method: credential_keyword_heuristic
+    missing_value_policy: unresolved
+    expected_type: string
+
+  project_duration:
+    description: Proposed project duration in months
+    extraction_method: duration_normalizer
+    missing_value_policy: unresolved
+    unit: months
+    expected_type: integer
+    validation_rules:
+      - min_value: 6
+      - max_value: 36
+
+  duration_exception_above_24:
+    description: Justification when project duration exceeds 24 months
+    extraction_method: duration_justification_heuristic
+    missing_value_policy: clarification_required
+    expected_type: string
+
+  thrust_area_alignment:
+    description: Selected thrust area from MOC-ST approved list
+    extraction_method: approved_thrust_area_keyword_match
+    missing_value_policy: unresolved
+    expected_type: string
+    allowed_values:
+      - production-productivity
+      - safety-health-environment
+      - waste-to-wealth
+      - alternative-use-clean-coal
+      - beneficiation-utilisation
+      - exploration-innovation-indigenisation
+
+  contingency_percentage:
+    description: Contingency budget as percentage of total budget
+    extraction_method: percentage_pattern
+    missing_value_policy: unresolved
+    unit: percent
+    expected_type: number
+    validation_rules:
+      - max_value: 5
+
+  overhead_percentage:
+    description: Overhead/institutional charges as percentage
+    extraction_method: percentage_pattern
+    missing_value_policy: unresolved
+    unit: percent
+    expected_type: number
+
+  land_purchase:
+    description: Whether purchase of land is included in the project budget (prohibited)
+    extraction_method: prohibited_budget_item_heuristic
+    missing_value_policy: not_applicable
+    expected_type: string
+    allowed_values: ["yes", "none"]
+
+  foreign_travel:
+    description: Whether foreign travel is budgeted
+    extraction_method: budget_line_keyword_heuristic
+    missing_value_policy: clarification_required
+    expected_type: string
+    allowed_values: ["yes", "no"]
+
+  staff_vehicles:
+    description: Whether staff vehicles are budgeted (prohibited)
+    extraction_method: prohibited_item_keyword_heuristic
+    missing_value_policy: not_applicable
+    expected_type: string
+
+  permanent_salary:
+    description: Whether permanent staff salaries are budgeted (prohibited)
+    extraction_method: prohibited_item_keyword_heuristic
+    missing_value_policy: not_applicable
+    expected_type: string
+
+  routine_academic_study:
+    description: Whether the proposal is only a routine academic study without an industry R&D outcome (prohibited)
+    extraction_method: prohibited_scope_heuristic
+    missing_value_policy: not_applicable
+    expected_type: string
+    allowed_values: ["yes", "none"]
+
+  industry_relevance:
+    description: Whether a clear, verifiable benefit to the coal or energy industry is demonstrated
+    extraction_method: industry_benefit_evidence_heuristic
+    missing_value_policy: unresolved
+    expected_type: string
+    allowed_values: ["demonstrated", "not_demonstrated"]
+
+  environmental_safety_compliance:
+    description: Whether environmental, safety, and applicable DGMS requirements are addressed
+    extraction_method: regulatory_compliance_evidence_heuristic
+    missing_value_policy: unresolved
+    expected_type: string
+    allowed_values: ["addressed", "not_addressed"]
+
+  equipment_duplication:
+    description: Whether requested equipment duplicates existing funded equipment
+    extraction_method: duplication_declaration_heuristic_v2
+    missing_value_policy: clarification_required
+    expected_type: string
+
+  dgms_approval:
+    description: DGMS (Directorate General of Mines Safety) statutory approval status
+    extraction_method: statutory_approval_keyword_heuristic
+    missing_value_policy: clarification_required
+    expected_type: string

@@ -1,0 +1,40 @@
+# Ministry of Coal Science & Technology Scheme Profile
+scheme_code: "MOC-ST"
+name: "Ministry of Coal Science and Technology"
+short_name: "MoC S&T"
+description: "Research and development projects in coal and lignite sector"
+funding_authority: "Ministry of Coal, Government of India"
+max_duration_months: 36
+max_funding: null
+funding_type: "grant"
+
+thrust_areas:
+  - id: "production-productivity"
+    name: "Production and Productivity Improvement"
+    description: "Mining productivity, mechanisation, automation, equipment development"
+  - id: "safety-health-environment"
+    name: "Safety, Health and Environment"
+    description: "Mine safety, occupational health, environmental protection, emission control"
+  - id: "waste-to-wealth"
+    name: "Waste to Wealth"
+    description: "Fly ash utilisation, overburden management, mine water, circular economy"
+  - id: "alternative-use-clean-coal"
+    name: "Alternative Use of Coal and Clean Coal Technologies"
+    description: "Coal gasification, coal-to-chemicals, carbon capture, clean coal"
+  - id: "beneficiation-utilisation"
+    name: "Coal Beneficiation and Utilisation"
+    description: "Coal washing, quality improvement, coal blending, premium fuel"
+  - id: "exploration-innovation-indigenisation"
+    name: "Exploration, Innovation and Indigenisation"
+    description: "Exploration tech, remote sensing, GIS, import substitution, Make in India"
+
+required_forms:
+  - "Form-I: Project Proposal"
+  - "Form-II: Bio-data of Investigators"
+  - "Form-III: Equipment Details"
+  - "Form-IV: Certificate from Head of Institution"
+
+decision_authority:
+  first_level_scrutiny: "CMPDI Scrutiny Officer"
+  technical_review: "Technical Sub-Committee"
+  final_approval: "SSRC (Standing Scientific Research Committee)"

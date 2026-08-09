@@ -1,0 +1,37 @@
+# S&T-FIRST Scheme (Startup) - Eligibility Rules v1
+# Source: S&T-FIRST Guidelines 2024
+rule_version: "1.0"
+scheme_code: "ST-FIRST"
+effective_date: "2024-06-01"
+supersedes: null
+
+rules:
+  - rule_id: "ST-FIRST-ELIG-001"
+    category: "eligibility"
+    field: "entity_type"
+    description: "Applicant must be a registered startup as per DPIIT definition"
+    operator: "entity_type"
+    limit_value: "startup"
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "S&T-FIRST Guidelines 2024, Section 3.1"
+
+  - rule_id: "ST-FIRST-ELIG-002"
+    category: "eligibility"
+    field: "project_duration"
+    description: "Project duration must be 12-24 months"
+    operator: "range"
+    limit_value: "12-24"
+    severity: "error"
+    uncertainty_action: "clarification"
+    source_reference: "S&T-FIRST Guidelines 2024, Section 5.1"
+
+  - rule_id: "ST-FIRST-ELIG-003"
+    category: "financial"
+    field: "max_funding"
+    description: "Maximum funding is 50 lakhs per project"
+    operator: "max_value"
+    limit_value: "5000000"
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "S&T-FIRST Guidelines 2024, Section 6.1"

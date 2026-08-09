@@ -1,0 +1,175 @@
+# MoC S&T 100-Mark Technical Assessment Rubric v1
+# This is a configurable framework. Weights and subcriteria are stored here,
+# not hardcoded in frontend code.
+rubric_version: "1.0"
+scheme_code: "MOC-ST"
+total_marks: 100
+effective_date: "2024-01-01"
+is_active: true
+
+categories:
+  - name: "Problem Definition, Need and Thrust Alignment"
+    maximum: 12
+    criteria:
+      - id: "coal-specific-problem"
+        label: "Problem is specific to coal/lignite operations"
+        maximum: 3
+        description: "Evaluates whether the operational baseline, affected stakeholder, and mine process are identified"
+      - id: "thrust-area-justification"
+        label: "Thrust area is justified"
+        maximum: 3
+        description: "Proposal demonstrates clear alignment with approved thrust area"
+      - id: "r&d-content"
+        label: "Work contains real R&D (not routine work)"
+        maximum: 3
+        description: "Distinguishes research from routine testing, survey, or academic study"
+      - id: "significance"
+        label: "Significance is supported by evidence"
+        maximum: 3
+        description: "Problem significance is backed by data, incidents, or operational evidence"
+
+  - name: "Novelty and Progressive R&D Contribution"
+    maximum: 14
+    criteria:
+      - id: "prior-work-review"
+        label: "National and international prior work reviewed"
+        maximum: 3
+        description: "Demonstrates awareness of existing solutions and research"
+      - id: "research-gap"
+        label: "Research gap clearly identified"
+        maximum: 3
+        description: "Differentiates from previous MoC/CIL projects and existing literature"
+      - id: "scientific-contribution"
+        label: "Scientific or engineering contribution"
+        maximum: 3
+        description: "Novel approach, methodology, or technology advancement"
+      - id: "indigenisation"
+        label: "Indigenisation or import substitution potential"
+        maximum: 2
+        description: "Relevance to Make in India / Atmanirbhar Bharat"
+      - id: "ipr-potential"
+        label: "IPR potential (where applicable)"
+        maximum: 2
+        description: "Patent, copyright, or design registration potential"
+      - id: "duplication-risk"
+        label: "Duplication risk assessed"
+        maximum: 1
+        description: "Prior-project similarity check passed"
+
+  - name: "Objectives, Methodology and Validation Design"
+    maximum: 16
+    criteria:
+      - id: "objective-clarity"
+        label: "Objectives are clear and measurable"
+        maximum: 3
+      - id: "objective-output-mapping"
+        label: "Objectives mapped to expected outputs"
+        maximum: 2
+      - id: "scientific-validity"
+        label: "Scientific validity of approach"
+        maximum: 3
+      - id: "experimental-design"
+        label: "Experimental design and baseline"
+        maximum: 3
+      - id: "data-plan"
+        label: "Data collection and analysis plan"
+        maximum: 2
+      - id: "validation-protocol"
+        label: "Validation protocol and success/failure criteria"
+        maximum: 3
+
+  - name: "Team Capability, Infrastructure and Past Performance"
+    maximum: 12
+    criteria:
+      - id: "pi-expertise"
+        label: "PI expertise in relevant domain"
+        maximum: 3
+      - id: "past-performance"
+        label: "PI track record on similar projects"
+        maximum: 2
+      - id: "institutional-facilities"
+        label: "Available institutional facilities and equipment"
+        maximum: 3
+      - id: "collaborator-strength"
+        label: "Collaborator strength and complementarity"
+        maximum: 2
+      - id: "conflict-check"
+        label: "No conflict between collaborators and vendors"
+        maximum: 2
+
+  - name: "Work Plan, Milestones and Implementation Feasibility"
+    maximum: 12
+    criteria:
+      - id: "work-package-structure"
+        label: "Work package structure and responsibility matrix"
+        maximum: 3
+      - id: "milestones"
+        label: "Measurable milestones with timelines"
+        maximum: 3
+      - id: "schedule-realism"
+        label: "Realistic PERT/bar schedule"
+        maximum: 2
+      - id: "procurement-recruitment"
+        label: "Procurement and recruitment plan"
+        maximum: 2
+      - id: "backup-paths"
+        label: "Backup/alternative paths identified"
+        maximum: 2
+
+  - name: "Coal-Industry Benefit, Adoption and Replication"
+    maximum: 16
+    criteria:
+      - id: "industry-benefit"
+        label: "Quantified coal-industry benefit"
+        maximum: 4
+        description: "Productivity, safety, environmental, or financial improvement"
+      - id: "end-user"
+        label: "Named end-user or deployment site"
+        maximum: 3
+      - id: "commitment-evidence"
+        label: "Commitment evidence (MoU, support letter)"
+        maximum: 3
+      - id: "scale-up-plan"
+        label: "Scale-up and replication plan"
+        maximum: 3
+      - id: "post-project-ownership"
+        label: "Post-project ownership and maintenance"
+        maximum: 3
+
+  - name: "Budget Realism and Fund-Use Quality"
+    maximum: 10
+    criteria:
+      - id: "budget-consistency"
+        label: "Head consistency and arithmetic validation"
+        maximum: 2
+      - id: "quotations"
+        label: "Quotations or cost estimates provided"
+        maximum: 2
+      - id: "equipment-justification"
+        label: "Equipment justification (no duplication)"
+        maximum: 2
+      - id: "milestone-linking"
+        label: "Milestone-linked phasing"
+        maximum: 2
+      - id: "value-for-money"
+        label: "Value for money assessment"
+        maximum: 2
+
+  - name: "Safety, Regulation, Dependency and Risk Readiness"
+    maximum: 8
+    criteria:
+      - id: "statutory-requirements"
+        label: "DGMS and statutory requirements identified"
+        maximum: 2
+      - id: "environmental-permissions"
+        label: "Environmental permissions (if applicable)"
+        maximum: 1
+      - id: "risk-register"
+        label: "Risk register with mitigation owners"
+        maximum: 2
+      - id: "operational-risks"
+        label: "Operational and technical failure risks assessed"
+        maximum: 2
+      - id: "contingency-exit"
+        label: "Contingency plan and exit strategy"
+        maximum: 1

@@ -1,0 +1,83 @@
+contract_version: "1.0"
+scheme_code: "MOC-ST"
+defaults:
+  allowed_document_roles: [main_proposal]
+  allow_unclassified_section: true
+  unclassified_min_keyword_hits: 2
+  minimum_keyword_hits: 2
+criteria:
+  uniqueness-vs-past-work:
+    allowed_sections: [introduction, literature_review, novelty, objectives, methodology]
+    minimum_keyword_hits: 2
+  patent-ip-potential:
+    allowed_sections: [novelty, methodology, commercialisation, impact, annexures]
+    minimum_keyword_hits: 1
+  indigenisation-potential:
+    allowed_sections: [introduction, objectives, methodology, impact, commercialisation, strategic_alignment]
+    minimum_keyword_hits: 1
+  technical-clarity:
+    allowed_sections: [objectives, methodology, technical_approach, work_plan]
+    minimum_keyword_hits: 2
+  trl-advancement:
+    allowed_sections: [trl, methodology, validation, work_plan, timeline]
+    minimum_keyword_hits: 1
+  infrastructure-readiness:
+    allowed_sections: [infrastructure, team, methodology, annexures]
+  team-track-record:
+    allowed_document_roles: [main_proposal, pi_cv, team_cv]
+    allowed_sections: [team, experience, annexures]
+  workplan-milestones:
+    allowed_sections: [work_plan, timeline, methodology]
+    minimum_keyword_hits: 2
+  adoption-likelihood:
+    allowed_document_roles: [main_proposal, industry_support_letter]
+    allowed_sections: [commercialisation, impact, partner, annexures]
+    minimum_keyword_hits: 2
+  economic-benefit-ratio:
+    allowed_sections: [impact, economics, commercialisation, budget]
+    minimum_keyword_hits: 2
+  safety-environment-impact:
+    allowed_document_roles: [main_proposal, safety_document, environment_document]
+    allowed_sections: [impact, safety_environment, compliance, methodology]
+    minimum_keyword_hits: 2
+  strategic-fit:
+    allowed_sections: [introduction, objectives, impact, strategic_alignment]
+    minimum_keyword_hits: 2
+  sc-st-participation:
+    allowed_sections: [team, inclusivity, declarations]
+    minimum_keyword_hits: 1
+  women-researchers:
+    allowed_sections: [team, inclusivity, declarations]
+    minimum_keyword_hits: 1
+  startup-rural-innovators:
+    allowed_sections: [team, inclusivity, collaboration]
+    minimum_keyword_hits: 1
+  multi-agency-collaboration:
+    allowed_document_roles: [main_proposal, industry_support_letter]
+    allowed_sections: [team, collaboration, partner, annexures]
+    minimum_keyword_hits: 2
+  budget-realism:
+    allowed_document_roles: [main_proposal, budget_annexure, quotation]
+    allowed_sections: [budget, financial]
+    minimum_keyword_hits: 2
+  phased-funding:
+    allowed_document_roles: [main_proposal, budget_annexure, workplan_annexure]
+    allowed_sections: [budget, financial, timeline, work_plan]
+    minimum_keyword_hits: 2
+  roi-realism:
+    allowed_sections: [economics, impact, commercialisation, budget]
+    minimum_keyword_hits: 2
+  manpower-cost-ratio:
+    allowed_document_roles: [main_proposal, budget_annexure]
+    minimum_keyword_hits: 1
+    allowed_sections: [budget, financial]
+  dependencies-listed:
+    allowed_sections: [risk, work_plan, methodology]
+    minimum_keyword_hits: 2
+  mitigation-plans:
+    allowed_sections: [risk, work_plan, methodology]
+    minimum_keyword_hits: 2
+  compliance-readiness:
+    allowed_document_roles: [main_proposal, compliance_document, safety_document, environment_document]
+    allowed_sections: [compliance, safety_environment, risk]
+    minimum_keyword_hits: 1

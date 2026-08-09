@@ -1,0 +1,127 @@
+# Ministry of Coal R&D applicant-guidance rubric v2
+# Normalised from the uploaded MoC R&D Funding Applicant Guidance Brochure.
+rubric_version: "2.0"
+scheme_code: "MOC-ST"
+total_marks: 100
+effective_date: "2026-07-06"
+is_active: true
+source_reference: "MoC R&D Funding - Applicant Guidance Brochure, pages 1-2"
+cutoffs:
+  highly_competitive: 80
+  conditional_review: 60
+categories:
+  - name: "Novelty & Innovation"
+    maximum: 20
+    criteria:
+      - id: "uniqueness-vs-past-work"
+        label: "Uniqueness versus past work"
+        maximum: 8
+        description: "Assesses differentiation from earlier MoC projects and existing technical work."
+      - id: "patent-ip-potential"
+        label: "Patent and IP potential"
+        maximum: 4
+        description: "Assesses potential for patents, licences, design rights, copyright, or protected know-how."
+      - id: "indigenisation-potential"
+        label: "Indigenisation and import substitution"
+        maximum: 4
+        description: "Assesses Make-in-India, Atmanirbhar Bharat, localisation, and import-replacement potential."
+      - id: "technical-clarity"
+        label: "Technical clarity"
+        maximum: 4
+        description: "Assesses whether the concept, architecture, drawings, flow, algorithms, and assumptions are clearly explained."
+
+  - name: "Feasibility & Readiness"
+    maximum: 20
+    criteria:
+      - id: "trl-advancement"
+        label: "Technology readiness advancement"
+        maximum: 7
+        description: "Assesses starting TRL, target TRL, credible advancement of one to three levels, and validation route."
+      - id: "infrastructure-readiness"
+        label: "Infrastructure readiness"
+        maximum: 5
+        description: "Assesses availability and suitability of laboratories, machines, software, tools, and test sites."
+      - id: "team-track-record"
+        label: "Team track record"
+        maximum: 5
+        description: "Assesses relevant PI and team expertise, prior projects, publications, deployments, and delivery history."
+      - id: "workplan-milestones"
+        label: "Work plan and milestones"
+        maximum: 3
+        description: "Assesses realistic phases, measurable milestones, responsibilities, timelines, and backup paths."
+
+  - name: "Impact Assessment"
+    maximum: 25
+    criteria:
+      - id: "adoption-likelihood"
+        label: "Adoption likelihood"
+        maximum: 10
+        description: "Assesses a named industrial partner or deployment site and documentary commitment such as an MoU or support letter."
+      - id: "economic-benefit-ratio"
+        label: "Economic benefit ratio"
+        maximum: 6
+        description: "Assesses quantified benefits, cost-benefit ratio, savings, productivity, payback, and measurable value."
+      - id: "safety-environment-impact"
+        label: "Safety and environmental impact"
+        maximum: 5
+        description: "Assesses quantified improvements to safety, emissions, waste, water, land, or environmental performance."
+      - id: "strategic-fit"
+        label: "Strategic fit"
+        maximum: 4
+        description: "Assesses alignment with Atmanirbhar Bharat, Net Zero, sustainability, coal-sector priorities, and national strategy."
+
+  - name: "Inclusivity & Collaboration"
+    maximum: 10
+    criteria:
+      - id: "sc-st-participation"
+        label: "SC/ST participation"
+        maximum: 3
+        description: "Assesses substantive SC/ST participation in research and implementation roles."
+      - id: "women-researchers"
+        label: "Women researchers"
+        maximum: 3
+        description: "Assesses women as PI or meaningful participation, including the brochure's greater-than-30-percent indicator."
+      - id: "startup-rural-innovators"
+        label: "Startup and rural innovators"
+        maximum: 2
+        description: "Assesses participation of startups, MSMEs, rural innovators, or field-level innovators."
+      - id: "multi-agency-collaboration"
+        label: "Multi-agency collaboration"
+        maximum: 2
+        description: "Assesses complementary partnerships across PSUs, industry, laboratories, universities, and government bodies."
+
+  - name: "Financial Prudence"
+    maximum: 15
+    criteria:
+      - id: "budget-realism"
+        label: "Budget realism"
+        maximum: 6
+        description: "Assesses a detailed and internally consistent budget with quotations or defensible cost estimates."
+      - id: "phased-funding"
+        label: "Phased funding"
+        maximum: 3
+        description: "Assesses milestone-linked and time-phased fund utilisation."
+      - id: "roi-realism"
+        label: "ROI realism"
+        maximum: 4
+        description: "Assesses realistic payback, return, sensitivity, and downside assumptions."
+      - id: "manpower-cost-ratio"
+        label: "Manpower cost ratio"
+        maximum: 2
+        description: "Assesses whether manpower costs are transparent and at or below 30 percent of total budget."
+
+  - name: "Risk & Exception Handling"
+    maximum: 10
+    criteria:
+      - id: "dependencies-listed"
+        label: "Dependencies listed"
+        maximum: 3
+        description: "Assesses identification of equipment, data, permission, supply-chain, partner, and operational dependencies."
+      - id: "mitigation-plans"
+        label: "Mitigation plans"
+        maximum: 4
+        description: "Assesses specific mitigation owners, alternatives, contingencies, trigger points, and recovery paths."
+      - id: "compliance-readiness"
+        label: "Compliance readiness"
+        maximum: 3
+        description: "Assesses DGMS, environmental, safety, ethics, procurement, and other regulatory readiness."

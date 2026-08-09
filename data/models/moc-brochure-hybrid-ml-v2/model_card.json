@@ -1,0 +1,288 @@
+{
+  "architecture": "23 criterion-specific stateless word/character hashing vectorizers and averaged SGD logistic classifiers, exported as non-pickle numeric arrays",
+  "artifact_security": {
+    "numpy_allow_pickle_required": false,
+    "pickle_free": true,
+    "reason": "prevents executable model deserialisation and private sklearn pickle incompatibility"
+  },
+  "created_at": "2026-07-06T05:36:24+00:00",
+  "criterion_ids": [
+    "uniqueness-vs-past-work",
+    "patent-ip-potential",
+    "indigenisation-potential",
+    "technical-clarity",
+    "trl-advancement",
+    "infrastructure-readiness",
+    "team-track-record",
+    "workplan-milestones",
+    "adoption-likelihood",
+    "economic-benefit-ratio",
+    "safety-environment-impact",
+    "strategic-fit",
+    "sc-st-participation",
+    "women-researchers",
+    "startup-rural-innovators",
+    "multi-agency-collaboration",
+    "budget-realism",
+    "phased-funding",
+    "roi-realism",
+    "manpower-cost-ratio",
+    "dependencies-listed",
+    "mitigation-plans",
+    "compliance-readiness"
+  ],
+  "criterion_maxima": [
+    8.0,
+    4.0,
+    4.0,
+    4.0,
+    7.0,
+    5.0,
+    5.0,
+    3.0,
+    10.0,
+    6.0,
+    5.0,
+    4.0,
+    3.0,
+    3.0,
+    2.0,
+    2.0,
+    6.0,
+    3.0,
+    4.0,
+    2.0,
+    3.0,
+    4.0,
+    3.0
+  ],
+  "criterion_training_examples": 27600,
+  "dataset_files": [
+    "moc-brochure-bootstrap-v1.jsonl"
+  ],
+  "dataset_sha256": "15ce0687cb42d674c1c7541e37aa122234fa0cf93f5cd7f7cc7b6867968f7bd1",
+  "feature_config": {
+    "alternate_sign": false,
+    "char_features": 4096,
+    "total_features": 8192,
+    "word_features": 4096
+  },
+  "feature_stats": {
+    "adoption-likelihood": {
+      "feature_count": 8192,
+      "median_nonzero": 650.0,
+      "p10_nonzero": 489.0
+    },
+    "budget-realism": {
+      "feature_count": 8192,
+      "median_nonzero": 646.0,
+      "p10_nonzero": 489.0
+    },
+    "compliance-readiness": {
+      "feature_count": 8192,
+      "median_nonzero": 643.0,
+      "p10_nonzero": 478.0
+    },
+    "dependencies-listed": {
+      "feature_count": 8192,
+      "median_nonzero": 606.0,
+      "p10_nonzero": 483.0
+    },
+    "economic-benefit-ratio": {
+      "feature_count": 8192,
+      "median_nonzero": 669.0,
+      "p10_nonzero": 478.0
+    },
+    "indigenisation-potential": {
+      "feature_count": 8192,
+      "median_nonzero": 653.0,
+      "p10_nonzero": 483.0
+    },
+    "infrastructure-readiness": {
+      "feature_count": 8192,
+      "median_nonzero": 643.0,
+      "p10_nonzero": 473.0
+    },
+    "manpower-cost-ratio": {
+      "feature_count": 8192,
+      "median_nonzero": 596.0,
+      "p10_nonzero": 483.0
+    },
+    "mitigation-plans": {
+      "feature_count": 8192,
+      "median_nonzero": 615.0,
+      "p10_nonzero": 488.4
+    },
+    "multi-agency-collaboration": {
+      "feature_count": 8192,
+      "median_nonzero": 664.0,
+      "p10_nonzero": 483.0
+    },
+    "patent-ip-potential": {
+      "feature_count": 8192,
+      "median_nonzero": 644.0,
+      "p10_nonzero": 483.0
+    },
+    "phased-funding": {
+      "feature_count": 8192,
+      "median_nonzero": 616.5,
+      "p10_nonzero": 489.0
+    },
+    "roi-realism": {
+      "feature_count": 8192,
+      "median_nonzero": 621.0,
+      "p10_nonzero": 475.0
+    },
+    "safety-environment-impact": {
+      "feature_count": 8192,
+      "median_nonzero": 666.0,
+      "p10_nonzero": 489.0
+    },
+    "sc-st-participation": {
+      "feature_count": 8192,
+      "median_nonzero": 624.0,
+      "p10_nonzero": 478.0
+    },
+    "startup-rural-innovators": {
+      "feature_count": 8192,
+      "median_nonzero": 616.0,
+      "p10_nonzero": 483.0
+    },
+    "strategic-fit": {
+      "feature_count": 8192,
+      "median_nonzero": 635.0,
+      "p10_nonzero": 478.0
+    },
+    "team-track-record": {
+      "feature_count": 8192,
+      "median_nonzero": 669.0,
+      "p10_nonzero": 474.8
+    },
+    "technical-clarity": {
+      "feature_count": 8192,
+      "median_nonzero": 637.0,
+      "p10_nonzero": 478.0
+    },
+    "trl-advancement": {
+      "feature_count": 8192,
+      "median_nonzero": 623.0,
+      "p10_nonzero": 475.0
+    },
+    "uniqueness-vs-past-work": {
+      "feature_count": 8192,
+      "median_nonzero": 653.0,
+      "p10_nonzero": 489.0
+    },
+    "women-researchers": {
+      "feature_count": 8192,
+      "median_nonzero": 639.0,
+      "p10_nonzero": 482.5
+    },
+    "workplan-milestones": {
+      "feature_count": 8192,
+      "median_nonzero": 659.0,
+      "p10_nonzero": 478.0
+    }
+  },
+  "format_version": "portable-hashed-linear-v1",
+  "governance": {
+    "advisory_only": true,
+    "confidence_type": "uncalibrated_reliability_indicator",
+    "official_decision_validated": false,
+    "recommended_ai_weight": 0.45,
+    "recommended_expert_weight": 0.55
+  },
+  "intended_use": "Advisory preliminary scoring and ML workflow validation under mandatory human review.",
+  "level_ratios": [
+    0.03,
+    0.28,
+    0.63,
+    0.91
+  ],
+  "limitations": [
+    "The packaged model is trained on brochure-derived weak-supervision records, not historical institutional decisions.",
+    "Hold-out metrics are pipeline regression checks and do not establish real-world proposal-selection accuracy.",
+    "Reliability values are evidence and coverage indicators, not statistically calibrated probabilities.",
+    "Hard eligibility checks remain deterministic and the scorer abstains when evidence or coverage is weak.",
+    "Production use requires expert-labelled historical proposals, temporal/institution-held-out validation, calibration, bias review, and shadow deployment."
+  ],
+  "metrics": {
+    "calibrated_on_expert_outcomes": false,
+    "criterion_mean_level_accuracy": 1.0,
+    "criterion_mean_mae_ratio": 0.000843,
+    "evaluation_scope": "group-held-out brochure-derived weak supervision",
+    "metric_interpretation": "pipeline regression/sanity metrics only; not real-world selection accuracy",
+    "official_decision_validated": false,
+    "per_criterion_level_accuracy": {
+      "adoption-likelihood": 1.0,
+      "budget-realism": 1.0,
+      "compliance-readiness": 1.0,
+      "dependencies-listed": 1.0,
+      "economic-benefit-ratio": 1.0,
+      "indigenisation-potential": 1.0,
+      "infrastructure-readiness": 1.0,
+      "manpower-cost-ratio": 1.0,
+      "mitigation-plans": 1.0,
+      "multi-agency-collaboration": 1.0,
+      "patent-ip-potential": 1.0,
+      "phased-funding": 1.0,
+      "roi-realism": 1.0,
+      "safety-environment-impact": 1.0,
+      "sc-st-participation": 1.0,
+      "startup-rural-innovators": 1.0,
+      "strategic-fit": 1.0,
+      "team-track-record": 1.0,
+      "technical-clarity": 1.0,
+      "trl-advancement": 1.0,
+      "uniqueness-vs-past-work": 1.0,
+      "women-researchers": 1.0,
+      "workplan-milestones": 1.0
+    },
+    "per_criterion_mae_ratio": {
+      "adoption-likelihood": 0.000838,
+      "budget-realism": 0.000774,
+      "compliance-readiness": 0.00073,
+      "dependencies-listed": 0.001135,
+      "economic-benefit-ratio": 0.00082,
+      "indigenisation-potential": 0.000767,
+      "infrastructure-readiness": 0.000688,
+      "manpower-cost-ratio": 0.000837,
+      "mitigation-plans": 0.000986,
+      "multi-agency-collaboration": 0.000778,
+      "patent-ip-potential": 0.000676,
+      "phased-funding": 0.000925,
+      "roi-realism": 0.000789,
+      "safety-environment-impact": 0.00095,
+      "sc-st-participation": 0.000923,
+      "startup-rural-innovators": 0.000872,
+      "strategic-fit": 0.000716,
+      "team-track-record": 0.000591,
+      "technical-clarity": 0.000813,
+      "trl-advancement": 0.000937,
+      "uniqueness-vs-past-work": 0.001285,
+      "women-researchers": 0.000832,
+      "workplan-milestones": 0.000736
+    },
+    "test_rows": 300,
+    "total_score_mae": 0.0251,
+    "total_score_r2": 0.999983,
+    "total_score_rmse": 0.0313,
+    "total_score_spearman": 0.999981,
+    "train_rows": 900,
+    "trained_model": true
+  },
+  "model_name": "moc-brochure-hybrid-ml-v2",
+  "model_version": "2.0",
+  "random_seed": 20260706,
+  "rubric_version": "2.0",
+  "training_origins": [
+    "brochure-derived weak supervision"
+  ],
+  "training_rows": 1200,
+  "training_runtime": {
+    "numpy": "2.5.1",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.9.0",
+    "scipy": "1.18.0"
+  }
+}

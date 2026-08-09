@@ -1,0 +1,154 @@
+dataset_name: moc-brochure-bootstrap-v1
+scheme_code: MOC-ST
+rubric_version: "2.0"
+seed: 20260706
+rows: 1200
+label_origin: brochure-derived weak supervision
+allowed_uses:
+  - software integration testing
+  - initial feature and pipeline validation
+  - shadow-mode pilot preparation
+prohibited_claims:
+  - official approval accuracy
+  - production readiness
+  - replacement of expert review
+criteria:
+  uniqueness-vs-past-work:
+    positive:
+      - "The literature and prior MoC project review show that no earlier funded project combines this sensor architecture with the proposed mine process."
+      - "A comparison matrix differentiates the proposed method from national and international solutions on mechanism, cost, and operating conditions."
+      - "The proposal identifies a specific unresolved gap and explains why existing approaches cannot meet the stated requirement."
+    weak:
+      - "The idea is described as new, but no comparison with earlier work is supplied."
+  patent-ip-potential:
+    positive:
+      - "A patentability search is planned and the novel control method is expected to support an Indian patent and technology licence."
+      - "Foreground IP, ownership, licensing rights, and protection of process know-how are explicitly defined."
+    weak:
+      - "Intellectual property may be considered later without a protection or ownership plan."
+  indigenisation-potential:
+    positive:
+      - "The indigenous design replaces an imported subsystem and targets domestic manufacturing under Make in India and Atmanirbhar Bharat."
+      - "Local suppliers and Indian materials are identified for import substitution and maintainability."
+    weak:
+      - "The proposal mentions indigenous technology without identifying the imported item or domestic route."
+  technical-clarity:
+    positive:
+      - "The system architecture, process flow, algorithms, interfaces, operating assumptions, and acceptance limits are described step by step."
+      - "Drawings and a block diagram explain inputs, transformations, outputs, and failure handling."
+    weak:
+      - "The technical concept is stated at a high level with few implementation details."
+  trl-advancement:
+    positive:
+      - "The project starts at TRL 3 and targets TRL 6 through laboratory validation, pilot testing, and demonstration in a relevant coal environment."
+      - "Entry and exit evidence for each TRL gate is mapped to measurable tests and deliverables."
+    weak:
+      - "A large TRL jump is claimed without baseline evidence or a validation route."
+  infrastructure-readiness:
+    positive:
+      - "The host laboratory already has the required test rig, analytical instruments, software licences, workshop, and access to a mine site."
+      - "A facility utilisation plan confirms machine capacity, calibration status, and responsible operators."
+    weak:
+      - "Required facilities are expected to be arranged after sanction with no access commitment."
+  team-track-record:
+    positive:
+      - "The PI has eighteen years of relevant experience, completed three related R&D projects, and has publications and deployments in coal beneficiation."
+      - "Team roles are matched to documented expertise in mining, safety, data science, mechanical design, and commercialisation."
+    weak:
+      - "The team is listed without evidence of relevant experience or completed projects."
+  workplan-milestones:
+    positive:
+      - "The work plan defines four phases, measurable milestones, responsible leads, dates, dependencies, and fallback paths."
+      - "A milestone schedule links design, fabrication, testing, pilot demonstration, and scale-up deliverables."
+    weak:
+      - "Activities are listed without measurable milestones, ownership, or realistic timing."
+  adoption-likelihood:
+    positive:
+      - "A named coal PSU will host the pilot and has provided an MoU and support letter covering data, site access, operators, and post-project adoption."
+      - "The deployment site, end user, acceptance authority, and technology-transfer route are confirmed."
+    weak:
+      - "Industry relevance is claimed but no partner, site, or commitment evidence is provided."
+  economic-benefit-ratio:
+    positive:
+      - "The quantified cost-benefit analysis estimates annual savings of 4.2 crore rupees, a benefit-cost ratio of 3.1, and a payback period of eighteen months."
+      - "Productivity, downtime, energy, and maintenance benefits are calculated from an explicit operational baseline."
+    weak:
+      - "Economic benefit is described qualitatively without baseline, assumptions, or calculations."
+  safety-environment-impact:
+    positive:
+      - "The pilot targets a 25 percent reduction in exposure incidents and a 15 percent reduction in particulate emissions, with a defined measurement protocol."
+      - "Environmental and safety indicators include baseline values, targets, monitoring frequency, and verification responsibility."
+    weak:
+      - "Safety and environmental benefits are asserted without measurable indicators."
+  strategic-fit:
+    positive:
+      - "The project explicitly supports Net Zero, circular use of coal waste, Atmanirbhar Bharat, and the approved coal-sector technology priority."
+      - "Strategic alignment is mapped to sustainability, national energy security, and domestic capability."
+    weak:
+      - "National priorities are named without explaining the contribution."
+  sc-st-participation:
+    positive:
+      - "SC and ST researchers hold defined technical responsibilities, receive budgeted support, and participate in field implementation and authorship."
+      - "The proposal identifies substantive SC/ST participation rather than only reporting headcount."
+    weak:
+      - "SC/ST participation is mentioned without roles or evidence."
+  women-researchers:
+    positive:
+      - "A woman serves as co-PI and women researchers constitute 40 percent of the technical team with defined leadership responsibilities."
+      - "Participation exceeds 30 percent and includes decision-making, field work, and technical ownership."
+    weak:
+      - "Women are included in the team list without role clarity or participation percentage."
+  startup-rural-innovators:
+    positive:
+      - "A mining-technology startup and rural field innovators are formal partners for prototyping, local fabrication, and deployment feedback."
+      - "The startup's work package, budget, IP rights, and deliverables are defined."
+    weak:
+      - "A startup is mentioned as a possible vendor without a collaborative role."
+  multi-agency-collaboration:
+    positive:
+      - "CMPDI, a coal PSU, an IIT laboratory, and an industry partner have complementary work packages and a joint governance structure."
+      - "Data, facilities, expertise, and deployment responsibilities are distributed across agencies through signed commitments."
+    weak:
+      - "Several organisations are named without complementary responsibilities or commitments."
+  budget-realism:
+    positive:
+      - "The budget contains head-wise quantities, rates, arithmetic checks, quotations, taxes, and justification linked to tasks."
+      - "Equipment, consumables, travel, manpower, contingency, and overheads reconcile to the total cost."
+    weak:
+      - "A lump-sum budget is provided without quotations or task linkage."
+  phased-funding:
+    positive:
+      - "Fund release is phased against completion and verification of design, prototype, pilot, and final demonstration milestones."
+      - "Quarterly cash flow and milestone-linked utilisation are specified."
+    weak:
+      - "The full budget is requested upfront without milestone linkage."
+  roi-realism:
+    positive:
+      - "ROI includes payback, sensitivity to adoption and operating cost, downside scenarios, and clearly stated assumptions."
+      - "The financial case distinguishes pilot benefits from scaled deployment benefits."
+    weak:
+      - "A high return is claimed without sensitivity analysis or assumptions."
+  manpower-cost-ratio:
+    positive:
+      - "Manpower costs are 24 percent of the total budget and the calculation is shown by role, duration, and rate."
+      - "The manpower ratio remains below the 30 percent brochure benchmark."
+    weak:
+      - "Manpower costs are not separated from the total budget."
+  dependencies-listed:
+    positive:
+      - "The dependency register covers equipment supply, site access, historical data, permits, power, network connectivity, and partner availability."
+      - "Each dependency has an owner, due date, and impact rating."
+    weak:
+      - "Dependencies are not systematically identified."
+  mitigation-plans:
+    positive:
+      - "Each major risk has a trigger, probability, impact, mitigation owner, alternate supplier, backup test site, and recovery action."
+      - "Contingency paths are budgeted and linked to decision gates."
+    weak:
+      - "Risks are listed without owners, triggers, or alternative actions."
+  compliance-readiness:
+    positive:
+      - "DGMS, environmental, mine-safety, procurement, data-security, and site permissions are mapped to responsible owners and planned dates."
+      - "The proposal distinguishes approvals already obtained from approvals required before pilot operation."
+    weak:
+      - "Regulatory compliance is mentioned generally without approvals, owners, or timing."

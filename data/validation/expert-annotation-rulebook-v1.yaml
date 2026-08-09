@@ -1,0 +1,37 @@
+schema_version: "1.0"
+rulebook_id: expert-annotation-rulebook-v1
+title: Mulyankan Blind Expert Annotation Rulebook
+status: pilot_draft
+principles:
+  - Score only the immutable proposal version assigned to the reviewer.
+  - Do not infer missing facts from institutional reputation or external knowledge.
+  - Cite proposal pages or supporting-document pages for every criterion rationale.
+  - Use the frozen rubric maximum and criterion description.
+  - Declare conflicts before reviewing.
+  - Do not access model scores, model evidence, or peer reviews before submission.
+  - Record uncertainty using confidence and evidence-coverage fields.
+criterion_review:
+  required_fields:
+    - score
+    - rationale
+    - page_references
+  optional_fields:
+    - confidence
+    - evidence_coverage
+  score_bounds: rubric_defined
+  unsupported_evidence:
+    instruction: Score conservatively and state that the documented evidence is insufficient.
+consensus:
+  default_method: mean_of_blind_reviews
+  minimum_reviewers: 2
+  material_disagreement_triggers:
+    total_score_absolute_difference: 15
+    recommendation_disagreement: true
+  adjudication:
+    required_for_observational_metrics: false
+    recommended_for_material_disagreement: true
+    note: Institutional governance must approve or adjudicate disputed labels before they are used for model training.
+privacy_and_integrity:
+  export_requires_frozen_or_completed_study: true
+  no_personal_notes_in_rationale: true
+  preserve_source_document_and_page_provenance: true

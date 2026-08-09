@@ -1,0 +1,37 @@
+# Coal India Limited R&D Scheme - Eligibility Rules v1
+# Source: CIL R&D Guidelines 2024
+rule_version: "1.0"
+scheme_code: "CIL-RD"
+effective_date: "2024-01-01"
+supersedes: null
+
+rules:
+  - rule_id: "CIL-RD-ELIG-001"
+    category: "eligibility"
+    field: "institution_eligibility"
+    description: "Applicant must be a CIL subsidiary, academic institution, or recognised R&D organisation"
+    operator: "in_list"
+    limit_value: ["cil_subsidiary", "academic", "research_institute"]
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "CIL R&D Guidelines 2024, Section 4.1"
+
+  - rule_id: "CIL-RD-ELIG-002"
+    category: "eligibility"
+    field: "industry_partner"
+    description: "Proposals must have an identified end-user or industry partner within the coal sector"
+    operator: "required_field"
+    limit_value: null
+    severity: "error"
+    uncertainty_action: "clarification"
+    source_reference: "CIL R&D Guidelines 2024, Section 4.3"
+
+  - rule_id: "CIL-RD-ELIG-003"
+    category: "financial"
+    field: "cil_contribution"
+    description: "CIL contribution must not exceed 80% of total project cost for academic institutions"
+    operator: "max_percentage"
+    limit_value: "80"
+    severity: "error"
+    uncertainty_action: "review"
+    source_reference: "CIL R&D Guidelines 2024, Section 6.1"

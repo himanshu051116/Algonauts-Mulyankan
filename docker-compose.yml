@@ -1,0 +1,325 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_DB: ${POSTGRES_DB:?POSTGRES_DB is required}
+    ports:
+      - "127.0.0.1:${POSTGRES_HOST_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    ports:
+      - "127.0.0.1:${REDIS_HOST_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    ports:
+      - "127.0.0.1:${MINIO_API_HOST_PORT:-9000}:9000"
+      - "127.0.0.1:${MINIO_CONSOLE_HOST_PORT:-9001}:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+      MINIO_API_CORS_ALLOW_ORIGIN: ${CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+    healthcheck:
+      test: ["CMD-SHELL", "mc ready local"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - minio_data:/data
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  minio-init:
+    image: minio/mc:latest
+    entrypoint: >
+      /bin/sh -c "
+        set -e
+        echo 'Waiting for MinIO...'
+        until mc alias set mulyankan http://minio:9000 $${MINIO_ROOT_USER} $${MINIO_ROOT_PASSWORD}; do echo 'Retrying...'; sleep 2; done
+        echo 'Creating bucket...'
+        mc mb --ignore-existing mulyankan/$${STORAGE_BUCKET}
+        echo 'MinIO init complete.'
+      "
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+      STORAGE_BUCKET: ${STORAGE_BUCKET:-mulyankan-proposals}
+    depends_on:
+      minio:
+        condition: service_healthy
+
+  migration:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app/backend
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:?POSTGRES_USER is required}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@postgres:5432/${POSTGRES_DB:?POSTGRES_DB is required}
+      REDIS_URL: redis://redis:6379/0
+      STORAGE_ENDPOINT: http://minio:9000
+      STORAGE_PUBLIC_ENDPOINT: ${STORAGE_PUBLIC_ENDPOINT:-http://127.0.0.1:9000}
+      STORAGE_ACCESS_KEY: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      STORAGE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+      STORAGE_BUCKET: ${STORAGE_BUCKET:-mulyankan-proposals}
+      STORAGE_REGION: ${STORAGE_REGION:-us-east-1}
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:-}
+      SUPABASE_JWKS_URL: ${SUPABASE_JWKS_URL:-}
+      SUPABASE_JWT_ISSUER: ${SUPABASE_JWT_ISSUER:-}
+      SUPABASE_JWT_AUDIENCE: ${SUPABASE_JWT_AUDIENCE:-authenticated}
+      SUPABASE_JWT_ALGORITHMS: ${SUPABASE_JWT_ALGORITHMS:-RS256,ES256}
+      SUPABASE_JWKS_CACHE_SECONDS: ${SUPABASE_JWKS_CACHE_SECONDS:-300}
+      JWT_CLOCK_SKEW_SECONDS: ${JWT_CLOCK_SKEW_SECONDS:-60}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      AUTH_ALLOW_LOCAL_JWT: ${AUTH_ALLOW_LOCAL_JWT:-false}
+      LOCAL_JWT_ISSUER: ${LOCAL_JWT_ISSUER:-mulyankan-local-dev}
+      LOCAL_JWT_AUDIENCE: ${LOCAL_JWT_AUDIENCE:-mulyankan-dev}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      JWT_EXPIRY_HOURS: ${JWT_EXPIRY_HOURS:-24}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://localhost:4174,http://localhost:5173}
+      BOOTSTRAP_ADMIN_UID: ${BOOTSTRAP_ADMIN_UID:-}
+      BOOTSTRAP_ADMIN_EMAIL: ${BOOTSTRAP_ADMIN_EMAIL:-}
+      OCR_LANGUAGE: ${OCR_LANGUAGE:-eng+hin}
+      MAX_FILE_SIZE_MB: ${MAX_FILE_SIZE_MB:-50}
+      ALLOWED_EXTENSIONS: ${ALLOWED_EXTENSIONS:-.pdf,.docx,.txt}
+      MALWARE_SCAN_ENABLED: ${MALWARE_SCAN_ENABLED:-false}
+      MALWARE_SCAN_COMMAND: ${MALWARE_SCAN_COMMAND:-clamscan}
+      MALWARE_SCAN_TIMEOUT_SECONDS: ${MALWARE_SCAN_TIMEOUT_SECONDS:-60}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
+      READINESS_TIMEOUT_SECONDS: ${READINESS_TIMEOUT_SECONDS:-3}
+      SIGNED_DOWNLOAD_TTL_SECONDS: ${SIGNED_DOWNLOAD_TTL_SECONDS:-900}
+      WORKER_HEARTBEAT_KEY: ${WORKER_HEARTBEAT_KEY:-mulyankan:worker:heartbeat}
+      WORKER_HEARTBEAT_TTL_SECONDS: ${WORKER_HEARTBEAT_TTL_SECONDS:-120}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      TRUST_PROXY_HEADERS: ${TRUST_PROXY_HEADERS:-true}
+      METRICS_ENABLED: ${METRICS_ENABLED:-true}
+      METRICS_TOKEN: ${METRICS_TOKEN:-}
+      AUDIT_EXPORT_SIGNING_KEY: ${AUDIT_EXPORT_SIGNING_KEY:-}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      OTEL_SERVICE_NAME: ${OTEL_SERVICE_NAME:-mulyankan-backend}
+    command: >
+      sh -c "
+        echo '--- Running database migrations ---' &&
+        alembic -c /app/migrations/alembic.ini upgrade head &&
+        echo '--- Seeding MOC-ST workflow data ---' &&
+        python -m backend.scripts.seed_data &&
+        echo '--- MinIO bucket handled by minio-init; using server-level CORS ---' &&
+        echo '--- Init complete ---'
+      "
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    working_dir: /app/backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:?POSTGRES_USER is required}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@postgres:5432/${POSTGRES_DB:?POSTGRES_DB is required}
+      REDIS_URL: redis://redis:6379/0
+      STORAGE_ENDPOINT: http://minio:9000
+      STORAGE_PUBLIC_ENDPOINT: ${STORAGE_PUBLIC_ENDPOINT:-http://127.0.0.1:9000}
+      STORAGE_ACCESS_KEY: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      STORAGE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+      STORAGE_BUCKET: ${STORAGE_BUCKET:-mulyankan-proposals}
+      STORAGE_REGION: ${STORAGE_REGION:-us-east-1}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:-}
+      SUPABASE_JWKS_URL: ${SUPABASE_JWKS_URL:-}
+      SUPABASE_JWT_ISSUER: ${SUPABASE_JWT_ISSUER:-}
+      SUPABASE_JWT_AUDIENCE: ${SUPABASE_JWT_AUDIENCE:-authenticated}
+      SUPABASE_JWT_ALGORITHMS: ${SUPABASE_JWT_ALGORITHMS:-RS256,ES256}
+      SUPABASE_JWKS_CACHE_SECONDS: ${SUPABASE_JWKS_CACHE_SECONDS:-300}
+      JWT_CLOCK_SKEW_SECONDS: ${JWT_CLOCK_SKEW_SECONDS:-60}
+      AUTH_ALLOW_LOCAL_JWT: ${AUTH_ALLOW_LOCAL_JWT:-false}
+      LOCAL_JWT_ISSUER: ${LOCAL_JWT_ISSUER:-mulyankan-local-dev}
+      LOCAL_JWT_AUDIENCE: ${LOCAL_JWT_AUDIENCE:-mulyankan-dev}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      JWT_EXPIRY_HOURS: ${JWT_EXPIRY_HOURS:-24}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://localhost:4174,http://localhost:5173}
+      BOOTSTRAP_ADMIN_UID: ${BOOTSTRAP_ADMIN_UID:-}
+      BOOTSTRAP_ADMIN_EMAIL: ${BOOTSTRAP_ADMIN_EMAIL:-}
+      OCR_LANGUAGE: ${OCR_LANGUAGE:-eng+hin}
+      MAX_FILE_SIZE_MB: ${MAX_FILE_SIZE_MB:-50}
+      ALLOWED_EXTENSIONS: ${ALLOWED_EXTENSIONS:-.pdf,.docx,.txt}
+      MALWARE_SCAN_ENABLED: ${MALWARE_SCAN_ENABLED:-false}
+      MALWARE_SCAN_COMMAND: ${MALWARE_SCAN_COMMAND:-clamscan}
+      MALWARE_SCAN_TIMEOUT_SECONDS: ${MALWARE_SCAN_TIMEOUT_SECONDS:-60}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
+      READINESS_TIMEOUT_SECONDS: ${READINESS_TIMEOUT_SECONDS:-3}
+      SIGNED_DOWNLOAD_TTL_SECONDS: ${SIGNED_DOWNLOAD_TTL_SECONDS:-900}
+      WORKER_HEARTBEAT_KEY: ${WORKER_HEARTBEAT_KEY:-mulyankan:worker:heartbeat}
+      WORKER_HEARTBEAT_TTL_SECONDS: ${WORKER_HEARTBEAT_TTL_SECONDS:-120}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      TRUST_PROXY_HEADERS: ${TRUST_PROXY_HEADERS:-true}
+      METRICS_ENABLED: ${METRICS_ENABLED:-true}
+      METRICS_TOKEN: ${METRICS_TOKEN:-}
+      AUDIT_EXPORT_SIGNING_KEY: ${AUDIT_EXPORT_SIGNING_KEY:-}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      OTEL_SERVICE_NAME: ${OTEL_SERVICE_NAME:-mulyankan-backend}
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+    ports:
+      - "127.0.0.1:${BACKEND_HOST_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; response=urllib.request.urlopen('http://127.0.0.1:8000/health/ready'); raise SystemExit(0 if response.status == 200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    working_dir: /app/backend
+    command: arq app.worker.WorkerSettings
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:?POSTGRES_USER is required}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@postgres:5432/${POSTGRES_DB:?POSTGRES_DB is required}
+      REDIS_URL: redis://redis:6379/0
+      STORAGE_ENDPOINT: http://minio:9000
+      STORAGE_PUBLIC_ENDPOINT: ${STORAGE_PUBLIC_ENDPOINT:-http://127.0.0.1:9000}
+      STORAGE_ACCESS_KEY: ${MINIO_ROOT_USER:?MINIO_ROOT_USER is required}
+      STORAGE_SECRET_KEY: ${MINIO_ROOT_PASSWORD:?MINIO_ROOT_PASSWORD is required}
+      STORAGE_BUCKET: ${STORAGE_BUCKET:-mulyankan-proposals}
+      STORAGE_REGION: ${STORAGE_REGION:-us-east-1}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY:-}
+      SUPABASE_JWKS_URL: ${SUPABASE_JWKS_URL:-}
+      SUPABASE_JWT_ISSUER: ${SUPABASE_JWT_ISSUER:-}
+      SUPABASE_JWT_AUDIENCE: ${SUPABASE_JWT_AUDIENCE:-authenticated}
+      SUPABASE_JWT_ALGORITHMS: ${SUPABASE_JWT_ALGORITHMS:-RS256,ES256}
+      SUPABASE_JWKS_CACHE_SECONDS: ${SUPABASE_JWKS_CACHE_SECONDS:-300}
+      JWT_CLOCK_SKEW_SECONDS: ${JWT_CLOCK_SKEW_SECONDS:-60}
+      AUTH_ALLOW_LOCAL_JWT: ${AUTH_ALLOW_LOCAL_JWT:-false}
+      LOCAL_JWT_ISSUER: ${LOCAL_JWT_ISSUER:-mulyankan-local-dev}
+      LOCAL_JWT_AUDIENCE: ${LOCAL_JWT_AUDIENCE:-mulyankan-dev}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
+      JWT_EXPIRY_HOURS: ${JWT_EXPIRY_HOURS:-24}
+      BOOTSTRAP_ADMIN_UID: ${BOOTSTRAP_ADMIN_UID:-}
+      BOOTSTRAP_ADMIN_EMAIL: ${BOOTSTRAP_ADMIN_EMAIL:-}
+      OCR_LANGUAGE: ${OCR_LANGUAGE:-eng+hin}
+      MAX_FILE_SIZE_MB: ${MAX_FILE_SIZE_MB:-50}
+      ALLOWED_EXTENSIONS: ${ALLOWED_EXTENSIONS:-.pdf,.docx,.txt}
+      MALWARE_SCAN_ENABLED: ${MALWARE_SCAN_ENABLED:-false}
+      MALWARE_SCAN_COMMAND: ${MALWARE_SCAN_COMMAND:-clamscan}
+      MALWARE_SCAN_TIMEOUT_SECONDS: ${MALWARE_SCAN_TIMEOUT_SECONDS:-60}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
+      READINESS_TIMEOUT_SECONDS: ${READINESS_TIMEOUT_SECONDS:-3}
+      SIGNED_DOWNLOAD_TTL_SECONDS: ${SIGNED_DOWNLOAD_TTL_SECONDS:-900}
+      WORKER_HEARTBEAT_KEY: ${WORKER_HEARTBEAT_KEY:-mulyankan:worker:heartbeat}
+      WORKER_HEARTBEAT_TTL_SECONDS: ${WORKER_HEARTBEAT_TTL_SECONDS:-120}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      TRUST_PROXY_HEADERS: ${TRUST_PROXY_HEADERS:-true}
+      METRICS_ENABLED: ${METRICS_ENABLED:-true}
+      METRICS_TOKEN: ${METRICS_TOKEN:-}
+      AUDIT_EXPORT_SIGNING_KEY: ${AUDIT_EXPORT_SIGNING_KEY:-}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      OTEL_SERVICE_NAME: ${OTEL_SERVICE_NAME:-mulyankan-backend}
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", "cat /proc/1/cmdline | tr '\\0' ' ' | grep -q 'arq' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL:-}
+        VITE_SUPABASE_PUBLISHABLE_KEY: ${VITE_SUPABASE_PUBLISHABLE_KEY:-}
+        VITE_API_URL: ""
+        VITE_PUBLIC_APP_URL: ${VITE_PUBLIC_APP_URL:-http://localhost:3000}
+    environment:
+      STORAGE_PUBLIC_ENDPOINT: ${STORAGE_PUBLIC_ENDPOINT:-http://127.0.0.1:9000}
+      NGINX_ENVSUBST_FILTER: STORAGE_PUBLIC_ENDPOINT
+    ports:
+      - "127.0.0.1:${FRONTEND_HOST_PORT:-3000}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  postgres_data:
+  minio_data:
+  redis_data:

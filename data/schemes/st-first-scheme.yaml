@@ -1,0 +1,27 @@
+scheme_code: "ST-FIRST"
+name: "S&T-FIRST (Startup)"
+short_name: "S&T-FIRST"
+description: "Startup product development in coal sector under S&T-FIRST scheme"
+funding_authority: "Ministry of Coal / CMPDI"
+max_duration_months: 24
+max_funding: 5000000
+funding_type: "grant"
+
+thrust_areas:
+  - id: "mine-automation"
+    name: "Mine Automation and Digital Solutions"
+  - id: "safety-technology"
+    name: "Mine Safety Technology"
+  - id: "environmental-tech"
+    name: "Environmental Monitoring and Remediation"
+  - id: "coal-utilisation"
+    name: "Coal Beneficiation and Utilisation Technology"
+
+required_forms:
+  - "Form S-1: Startup Proposal"
+  - "Form S-2: DPIIT Registration Certificate"
+  - "Form S-3: Technology Readiness Declaration"
+
+decision_authority:
+  evaluation: "CMPDI Technical Committee"
+  approval: "Project Approval Board"

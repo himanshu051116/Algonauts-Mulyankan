@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "modelType": "untrained-keyword-heuristic",
+  "usable_for_inference": false,
+  "thresholds": {
+    "positiveRatio": 0.6,
+    "negativeRatio": 0.4
+  },
+  "models": {},
+  "testMetrics": {}
+}

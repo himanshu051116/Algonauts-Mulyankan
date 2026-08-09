@@ -1,0 +1,1213 @@
+{
+  "benchmark": {
+    "case_count": 5,
+    "id": "no-private-dataset-advisory-ml-v1",
+    "minimum_strong_to_weak_margin": 15.0,
+    "path": "data/benchmarks/no-private-data-advisory-ml-v1.json",
+    "sha256": "83de2d2c8c28e34ff856baa01f98c83d83e81f1305c694a053c11af0742c9612",
+    "version": "1.0.0"
+  },
+  "cases": [
+    {
+      "abstention": false,
+      "abstention_reasons": [],
+      "case": "evidence_rich_public_synthetic",
+      "confidence": 0.323,
+      "criteria": [
+        {
+          "awarded_score": 3.5,
+          "criterion_id": "uniqueness-vs-past-work",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 8.0,
+          "model_confidence_signal": 0.395,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "patent-ip-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.5,
+          "criterion_id": "indigenisation-potential",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 4.0,
+          "model_confidence_signal": 0.378,
+          "released": true
+        },
+        {
+          "awarded_score": 2.5,
+          "criterion_id": "technical-clarity",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 4.0,
+          "model_confidence_signal": 0.355,
+          "released": true
+        },
+        {
+          "awarded_score": 5.0,
+          "criterion_id": "trl-advancement",
+          "criterion_status": "supported",
+          "evidence_count": 1,
+          "maximum_score": 7.0,
+          "model_confidence_signal": 0.478,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "infrastructure-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.8,
+          "criterion_id": "team-track-record",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 5.0,
+          "model_confidence_signal": 0.403,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "workplan-milestones",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 7.1,
+          "criterion_id": "adoption-likelihood",
+          "criterion_status": "supported",
+          "evidence_count": 1,
+          "maximum_score": 10.0,
+          "model_confidence_signal": 0.498,
+          "released": true
+        },
+        {
+          "awarded_score": 4.0,
+          "criterion_id": "economic-benefit-ratio",
+          "criterion_status": "supported",
+          "evidence_count": 1,
+          "maximum_score": 6.0,
+          "model_confidence_signal": 0.452,
+          "released": true
+        },
+        {
+          "awarded_score": 3.6,
+          "criterion_id": "safety-environment-impact",
+          "criterion_status": "supported",
+          "evidence_count": 3,
+          "maximum_score": 5.0,
+          "model_confidence_signal": 0.61,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "strategic-fit",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "sc-st-participation",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.0,
+          "criterion_id": "women-researchers",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 3.0,
+          "model_confidence_signal": 0.443,
+          "released": true
+        },
+        {
+          "awarded_score": 1.0,
+          "criterion_id": "startup-rural-innovators",
+          "criterion_status": "supported",
+          "evidence_count": 1,
+          "maximum_score": 2.0,
+          "model_confidence_signal": 0.475,
+          "released": true
+        },
+        {
+          "awarded_score": 1.5,
+          "criterion_id": "multi-agency-collaboration",
+          "criterion_status": "supported",
+          "evidence_count": 1,
+          "maximum_score": 2.0,
+          "model_confidence_signal": 0.509,
+          "released": true
+        },
+        {
+          "awarded_score": 4.3,
+          "criterion_id": "budget-realism",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 6.0,
+          "model_confidence_signal": 0.416,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "phased-funding",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.2,
+          "criterion_id": "roi-realism",
+          "criterion_status": "supported",
+          "evidence_count": 1,
+          "maximum_score": 4.0,
+          "model_confidence_signal": 0.44,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "manpower-cost-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.1,
+          "criterion_id": "dependencies-listed",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 3.0,
+          "model_confidence_signal": 0.426,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "mitigation-plans",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.0,
+          "criterion_id": "compliance-readiness",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 3.0,
+          "model_confidence_signal": 0.427,
+          "released": true
+        }
+      ],
+      "description": "Evidence-rich coal-sector proposal with structured technical, adoption, budget, impact, team, and risk support.",
+      "diagnostic_score": 46.1,
+      "evidence_coverage": 0.325,
+      "expect_abstention": false,
+      "expectation": {
+        "abstention": false,
+        "maximum_diagnostic_score": null,
+        "minimum_diagnostic_score": 45.0,
+        "minimum_released_criteria": 12
+      },
+      "group": "strong_structured",
+      "model_confidence_signal": 0.323,
+      "passed": true,
+      "released_criterion_count": 15,
+      "total_score_released": true
+    },
+    {
+      "abstention": true,
+      "abstention_reasons": [
+        "document is too short for reliable brochure-rubric scoring",
+        "proposal vocabulary is outside the bootstrap model's learned coverage",
+        "supporting evidence coverage is insufficient",
+        "uncalibrated reliability indicator is below the advisory threshold",
+        "too few criteria have contract-accepted evidence"
+      ],
+      "case": "weak_public_synthetic",
+      "confidence": 0.0,
+      "criteria": [
+        {
+          "awarded_score": null,
+          "criterion_id": "uniqueness-vs-past-work",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 8.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "patent-ip-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "indigenisation-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "technical-clarity",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "trl-advancement",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 7.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "infrastructure-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "team-track-record",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "workplan-milestones",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "adoption-likelihood",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 10.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "economic-benefit-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "safety-environment-impact",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "strategic-fit",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "sc-st-participation",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "women-researchers",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "startup-rural-innovators",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "multi-agency-collaboration",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "budget-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "phased-funding",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "roi-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "manpower-cost-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "dependencies-listed",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "mitigation-plans",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "compliance-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        }
+      ],
+      "description": "Short coal proposal with claims but no supporting technical, economic, team, budget, risk, or validation evidence.",
+      "diagnostic_score": 0.0,
+      "evidence_coverage": 0.0,
+      "expect_abstention": true,
+      "expectation": {
+        "abstention": true,
+        "maximum_diagnostic_score": 35.0,
+        "minimum_diagnostic_score": null,
+        "minimum_released_criteria": null
+      },
+      "group": "incomplete_weak",
+      "model_confidence_signal": 0.0,
+      "passed": true,
+      "released_criterion_count": 0,
+      "total_score_released": false
+    },
+    {
+      "abstention": true,
+      "abstention_reasons": [
+        "document is too short for reliable brochure-rubric scoring",
+        "supporting evidence coverage is insufficient",
+        "uncalibrated reliability indicator is below the advisory threshold",
+        "too few criteria have contract-accepted evidence"
+      ],
+      "case": "generic_non_coal",
+      "confidence": 0.025,
+      "criteria": [
+        {
+          "awarded_score": null,
+          "criterion_id": "uniqueness-vs-past-work",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 8.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "patent-ip-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "indigenisation-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "technical-clarity",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "trl-advancement",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 7.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "infrastructure-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "team-track-record",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "workplan-milestones",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 1.0,
+          "criterion_id": "adoption-likelihood",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 10.0,
+          "model_confidence_signal": 0.251,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "economic-benefit-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "safety-environment-impact",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "strategic-fit",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "sc-st-participation",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "women-researchers",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "startup-rural-innovators",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "multi-agency-collaboration",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "budget-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "phased-funding",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "roi-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "manpower-cost-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "dependencies-listed",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "mitigation-plans",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "compliance-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        }
+      ],
+      "description": "Well-formed but unrelated school attendance application.",
+      "diagnostic_score": 1.0,
+      "evidence_coverage": 0.014,
+      "expect_abstention": true,
+      "expectation": {
+        "abstention": true,
+        "maximum_diagnostic_score": 20.0,
+        "minimum_diagnostic_score": null,
+        "minimum_released_criteria": null
+      },
+      "group": "out_of_domain",
+      "model_confidence_signal": 0.025,
+      "passed": true,
+      "released_criterion_count": 1,
+      "total_score_released": false
+    },
+    {
+      "abstention": true,
+      "abstention_reasons": [
+        "document is too short for reliable brochure-rubric scoring",
+        "supporting evidence coverage is insufficient",
+        "uncalibrated reliability indicator is below the advisory threshold",
+        "too few criteria have contract-accepted evidence"
+      ],
+      "case": "contradictory_claims",
+      "confidence": 0.019,
+      "criteria": [
+        {
+          "awarded_score": null,
+          "criterion_id": "uniqueness-vs-past-work",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 8.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "patent-ip-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "indigenisation-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "technical-clarity",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.0,
+          "criterion_id": "trl-advancement",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 7.0,
+          "model_confidence_signal": 0.274,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "infrastructure-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "team-track-record",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "workplan-milestones",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "adoption-likelihood",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 10.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "economic-benefit-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "safety-environment-impact",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "strategic-fit",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "sc-st-participation",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "women-researchers",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "startup-rural-innovators",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "multi-agency-collaboration",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "budget-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "phased-funding",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "roi-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "manpower-cost-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "dependencies-listed",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "mitigation-plans",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "compliance-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        }
+      ],
+      "description": "Coal keywords are present, but the proposal explicitly denies the evidence needed to support them.",
+      "diagnostic_score": 2.0,
+      "evidence_coverage": 0.011,
+      "expect_abstention": true,
+      "expectation": {
+        "abstention": true,
+        "maximum_diagnostic_score": 35.0,
+        "minimum_diagnostic_score": null,
+        "minimum_released_criteria": null
+      },
+      "group": "contradictory",
+      "model_confidence_signal": 0.019,
+      "passed": true,
+      "released_criterion_count": 1,
+      "total_score_released": false
+    },
+    {
+      "abstention": true,
+      "abstention_reasons": [
+        "document quality or repetition controls failed",
+        "supporting evidence coverage is insufficient",
+        "uncalibrated reliability indicator is below the advisory threshold",
+        "too few criteria have contract-accepted evidence"
+      ],
+      "case": "keyword_stuffing",
+      "confidence": 0.087,
+      "criteria": [
+        {
+          "awarded_score": null,
+          "criterion_id": "uniqueness-vs-past-work",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 8.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "patent-ip-potential",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 1.6,
+          "criterion_id": "indigenisation-potential",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 4.0,
+          "model_confidence_signal": 0.322,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "technical-clarity",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "trl-advancement",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 7.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 1.6,
+          "criterion_id": "infrastructure-readiness",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 5.0,
+          "model_confidence_signal": 0.324,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "team-track-record",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "workplan-milestones",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 2.1,
+          "criterion_id": "adoption-likelihood",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 10.0,
+          "model_confidence_signal": 0.318,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "economic-benefit-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "safety-environment-impact",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 5.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 1.0,
+          "criterion_id": "strategic-fit",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 4.0,
+          "model_confidence_signal": 0.319,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "sc-st-participation",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "women-researchers",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "startup-rural-innovators",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "multi-agency-collaboration",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "budget-realism",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 6.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "phased-funding",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": 1.7,
+          "criterion_id": "roi-realism",
+          "criterion_status": "partially_supported",
+          "evidence_count": 1,
+          "maximum_score": 4.0,
+          "model_confidence_signal": 0.339,
+          "released": true
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "manpower-cost-ratio",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 2.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "dependencies-listed",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "mitigation-plans",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 4.0,
+          "model_confidence_signal": null,
+          "released": false
+        },
+        {
+          "awarded_score": null,
+          "criterion_id": "compliance-readiness",
+          "criterion_status": "unresolved",
+          "evidence_count": 0,
+          "maximum_score": 3.0,
+          "model_confidence_signal": null,
+          "released": false
+        }
+      ],
+      "description": "Repeated rubric vocabulary without proposal evidence.",
+      "diagnostic_score": 8.0,
+      "evidence_coverage": 0.009,
+      "expect_abstention": true,
+      "expectation": {
+        "abstention": true,
+        "maximum_diagnostic_score": 40.0,
+        "minimum_diagnostic_score": null,
+        "minimum_released_criteria": null
+      },
+      "group": "adversarial_keyword_stuffing",
+      "model_confidence_signal": 0.087,
+      "passed": true,
+      "released_criterion_count": 5,
+      "total_score_released": false
+    }
+  ],
+  "dataset_requirement": "none; deterministic public/synthetic stress cases only",
+  "deterministic_report": true,
+  "evidence_contract": {
+    "sha256": "49f0e4cb79ab9f0408e046d3edf0eccd33e7c4518b1d93f009e955b60151b607",
+    "version": "1.0"
+  },
+  "margin_strong_minus_max_weak": 38.1,
+  "model": {
+    "artifact_path": "data/models/moc-brochure-hybrid-ml-v2/model.npz",
+    "artifact_sha256": "f80bdda5f741aba0030a9b17e1784c06a796577b95858006e616b7a2f38877d4",
+    "artifact_version": "2.0",
+    "inference_policy_version": "2.1",
+    "name": "moc-brochure-hybrid-ml-v2"
+  },
+  "official_decision_validated": false,
+  "passed": true,
+  "promotion": {
+    "current_state": "bootstrap",
+    "decision": "retain_bootstrap_advisory",
+    "eligible_for_official_decision_use": false,
+    "reason": "Behavioural robustness passed, but no expert-labelled institutional outcomes were used.",
+    "recommended_state": "bootstrap"
+  },
+  "quality_gate": "no-private-dataset-advisory-ml-v1",
+  "report_schema_version": "1.0",
+  "report_sha256": "b5a7d7df520a89fc87fae270dbc6b86f56b937e215f0ae508b7c8572c329ed69",
+  "rubric": {
+    "sha256": "263be13054dcfc9f68bde4dbefc90f8875fadeaaaccc0c809afc7792fdf44c36",
+    "version": "2.0"
+  }
+}

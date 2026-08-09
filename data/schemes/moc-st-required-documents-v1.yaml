@@ -1,0 +1,83 @@
+scheme_code: MOC-ST
+version: v1
+required_documents:
+- id: proposal_body
+  label: Proposal Body
+  description: Main technical proposal document
+  allowed_types:
+  - pdf
+  - docx
+  - txt
+  mandatory: true
+  max_size_mb: 50
+  document_role: main_proposal
+- id: budget_sheet
+  label: Budget Estimate Sheet
+  description: Detailed budget breakdown with justification
+  allowed_types:
+  - pdf
+  - docx
+  mandatory: true
+  max_size_mb: 10
+  document_role: budget_annexure
+- id: pi_cv
+  label: PI Curriculum Vitae
+  description: CV of principal investigator with qualifications and experience
+  allowed_types:
+  - pdf
+  - docx
+  mandatory: true
+  max_size_mb: 5
+  document_role: pi_cv
+- id: co_pi_cv
+  label: Co-PI Curriculum Vitae
+  description: CV of co-principal investigators (if applicable)
+  allowed_types:
+  - pdf
+  - docx
+  mandatory: false
+  max_size_mb: 5
+  document_role: team_cv
+- id: endorsement_letter
+  label: Institutional Endorsement Letter
+  description: Letter of endorsement from head of institution
+  allowed_types:
+  - pdf
+  - docx
+  mandatory: true
+  max_size_mb: 5
+  document_role: institution_profile
+- id: declaration_form
+  label: Declaration and Undertaking Form
+  description: Signed declaration of non-duplication and conflict disclosure
+  allowed_types:
+  - pdf
+  mandatory: true
+  max_size_mb: 2
+  document_role: compliance_document
+- id: prior_funding_declaration
+  label: Prior Funding Declaration
+  description: Declaration of any prior or concurrent funding for same project
+  allowed_types:
+  - pdf
+  - docx
+  mandatory: true
+  max_size_mb: 5
+  document_role: compliance_document
+- id: dgms_approval
+  label: DGMS Approval (if applicable)
+  description: Statutory approval from Directorate General of Mines Safety
+  allowed_types:
+  - pdf
+  mandatory: false
+  max_size_mb: 5
+  document_role: compliance_document
+- id: industry_letter
+  label: Industry Partner Letter (if applicable)
+  description: Letter of support from identified industry partner
+  allowed_types:
+  - pdf
+  - docx
+  mandatory: false
+  max_size_mb: 5
+  document_role: industry_support_letter

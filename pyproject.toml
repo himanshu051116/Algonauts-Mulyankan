@@ -1,0 +1,50 @@
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+testpaths = ["backend/tests"]
+addopts = "--basetemp=.pytest-tmp"
+
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "backend"
+explicit_package_bases = true
+
+exclude = [
+  "^backend/tests/",
+  "^backend/\\.venv/",
+  "^backend/__pycache__/",
+  "^\\.tmp/",
+]
+
+plugins = [
+  "sqlalchemy.ext.mypy.plugin",
+  "pydantic.mypy",
+]
+
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+warn_return_any = true
+
+no_implicit_optional = true
+check_untyped_defs = true
+disallow_untyped_defs = false
+
+show_error_codes = true
+show_column_numbers = true
+pretty = true
+
+
+[[tool.mypy.overrides]]
+module = [
+  "arq.*",
+  "boto3.*",
+  "botocore.*",
+  "mammoth.*",
+  "pdfplumber.*",
+  "pytesseract.*",
+  "numpy.*",
+  "scipy.*",
+  "sklearn.*",
+]
+ignore_missing_imports = true

@@ -1,0 +1,30 @@
+scheme_code: "CIL-RD"
+name: "Coal India Limited Research and Development"
+short_name: "CIL R&D"
+description: "Industry-focused R&D projects addressing CIL operational challenges"
+funding_authority: "Coal India Limited"
+max_duration_months: 36
+max_funding: null
+funding_type: "joint_funding"
+
+thrust_areas:
+  - id: "production-productivity"
+    name: "Production and Productivity Improvement"
+  - id: "safety-health-environment"
+    name: "Safety, Health and Environment"
+  - id: "waste-to-wealth"
+    name: "Waste to Wealth"
+  - id: "alternative-use-clean-coal"
+    name: "Clean Coal Technologies"
+  - id: "exploration-innovation-indigenisation"
+    name: "Innovation and Indigenisation"
+
+required_forms:
+  - "Form-A: Project Proposal"
+  - "Form-B: Undertaking by Applicant"
+  - "Form-C: Endorsement from Collaborating Agency"
+
+decision_authority:
+  first_level_scrutiny: "CIL R&D Cell"
+  technical_review: "Technical Committee"
+  final_approval: "CIL Board of Directors"

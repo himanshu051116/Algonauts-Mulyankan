@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mulyankan.local/schemas/expert-labelled-record-v1.json",
+  "title": "Mulyankan MoC expert-labelled proposal record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "proposal_group",
+    "proposal_version_id",
+    "document_sha256",
+    "scheme_code",
+    "guideline_version",
+    "rubric_version",
+    "institution_id_hash",
+    "proposal_year",
+    "language",
+    "ocr_used",
+    "label_origin",
+    "reviewer_count",
+    "inter_reviewer_agreement",
+    "criterion_scores",
+    "criterion_evidence",
+    "adjudication_rationale",
+    "text"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposal_group": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposal_version_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "document_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "scheme_code": {
+      "const": "MOC-ST"
+    },
+    "guideline_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rubric_version": {
+      "const": "2.0"
+    },
+    "institution_id_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposal_year": {
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "en",
+        "hi",
+        "mixed"
+      ]
+    },
+    "ocr_used": {
+      "type": "boolean"
+    },
+    "label_origin": {
+      "type": "string",
+      "enum": [
+        "expert adjudication",
+        "committee adjudication"
+      ]
+    },
+    "reviewer_count": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "inter_reviewer_agreement": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "criterion_scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uniqueness-vs-past-work",
+        "patent-ip-potential",
+        "indigenisation-potential",
+        "technical-clarity",
+        "trl-advancement",
+        "infrastructure-readiness",
+        "team-track-record",
+        "workplan-milestones",
+        "adoption-likelihood",
+        "economic-benefit-ratio",
+        "safety-environment-impact",
+        "strategic-fit",
+        "sc-st-participation",
+        "women-researchers",
+        "startup-rural-innovators",
+        "multi-agency-collaboration",
+        "budget-realism",
+        "phased-funding",
+        "roi-realism",
+        "manpower-cost-ratio",
+        "dependencies-listed",
+        "mitigation-plans",
+        "compliance-readiness"
+      ],
+      "properties": {
+        "uniqueness-vs-past-work": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 8.0
+        },
+        "patent-ip-potential": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4.0
+        },
+        "indigenisation-potential": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4.0
+        },
+        "technical-clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4.0
+        },
+        "trl-advancement": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 7.0
+        },
+        "infrastructure-readiness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5.0
+        },
+        "team-track-record": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5.0
+        },
+        "workplan-milestones": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3.0
+        },
+        "adoption-likelihood": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10.0
+        },
+        "economic-benefit-ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 6.0
+        },
+        "safety-environment-impact": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5.0
+        },
+        "strategic-fit": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4.0
+        },
+        "sc-st-participation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3.0
+        },
+        "women-researchers": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3.0
+        },
+        "startup-rural-innovators": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2.0
+        },
+        "multi-agency-collaboration": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2.0
+        },
+        "budget-realism": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 6.0
+        },
+        "phased-funding": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3.0
+        },
+        "roi-realism": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4.0
+        },
+        "manpower-cost-ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2.0
+        },
+        "dependencies-listed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3.0
+        },
+        "mitigation-plans": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4.0
+        },
+        "compliance-readiness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3.0
+        }
+      }
+    },
+    "criterion_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uniqueness-vs-past-work",
+        "patent-ip-potential",
+        "indigenisation-potential",
+        "technical-clarity",
+        "trl-advancement",
+        "infrastructure-readiness",
+        "team-track-record",
+        "workplan-milestones",
+        "adoption-likelihood",
+        "economic-benefit-ratio",
+        "safety-environment-impact",
+        "strategic-fit",
+        "sc-st-participation",
+        "women-researchers",
+        "startup-rural-innovators",
+        "multi-agency-collaboration",
+        "budget-realism",
+        "phased-funding",
+        "roi-realism",
+        "manpower-cost-ratio",
+        "dependencies-listed",
+        "mitigation-plans",
+        "compliance-readiness"
+      ],
+      "properties": {
+        "uniqueness-vs-past-work": {
+          "type": "string",
+          "minLength": 1
+        },
+        "patent-ip-potential": {
+          "type": "string",
+          "minLength": 1
+        },
+        "indigenisation-potential": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technical-clarity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trl-advancement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "infrastructure-readiness": {
+          "type": "string",
+          "minLength": 1
+        },
+        "team-track-record": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workplan-milestones": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adoption-likelihood": {
+          "type": "string",
+          "minLength": 1
+        },
+        "economic-benefit-ratio": {
+          "type": "string",
+          "minLength": 1
+        },
+        "safety-environment-impact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "strategic-fit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sc-st-participation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "women-researchers": {
+          "type": "string",
+          "minLength": 1
+        },
+        "startup-rural-innovators": {
+          "type": "string",
+          "minLength": 1
+        },
+        "multi-agency-collaboration": {
+          "type": "string",
+          "minLength": 1
+        },
+        "budget-realism": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phased-funding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "roi-realism": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manpower-cost-ratio": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependencies-listed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mitigation-plans": {
+          "type": "string",
+          "minLength": 1
+        },
+        "compliance-readiness": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "adjudication_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string",
+      "minLength": 50
+    }
+  }
+}

@@ -1,0 +1,67 @@
+schema_version: "1.0"
+protocol_id: expert-grounded-validation-v1
+title: Mulyankan Expert-Grounded Validation and Shadow-Pilot Protocol
+status: pilot_observational
+scope:
+  scheme_code: MOC-ST
+  intended_use: preliminary advisory scrutiny only
+  prohibited_claims:
+    - scientifically validated model
+    - official decision accuracy
+    - autonomous approval or rejection
+study_design:
+  shadow_mode: true
+  minimum_independent_reviews_per_case: 2
+  reviewer_blinding:
+    model_output_hidden_until_review_submission: true
+    peer_reviews_hidden_until_review_submission: true
+    machine_extracted_fields_hidden_until_review_submission: true
+    proposal_outcome_and_adjudication_hidden_until_review_submission: true
+  proposal_group_leakage_control:
+    keep_all_versions_in_one_partition: true
+    one_proposal_group_per_study: true
+  partitions:
+    - development
+    - internal_test
+    - external_test
+    - shadow
+  recommended_minimums:
+    internal_pilot_cases: 30
+    external_test_cases: 30
+review_governance:
+  conflicts_must_be_declared: true
+  review_is_immutable_after_submission: true
+  material_disagreement_flagged_for_adjudication: true
+  adjudication_required_before_training_label_approval: institution_defined
+  reviewer_identity_access: restricted
+metrics:
+  score_metrics:
+    - total_score_mae
+    - total_score_rmse
+    - total_score_bias_model_minus_expert
+    - pearson_score_correlation
+    - spearman_rank_correlation
+    - score_within_5_points_rate
+    - score_within_10_points_rate
+  reviewer_metrics:
+    - expert_pairwise_mae
+    - total_score_std
+    - recommendation_agreement_rate
+  selective_prediction_metrics:
+    - model_release_rate
+    - model_abstention_or_withhold_rate
+  calibration:
+    - confidence_calibration_ece_proxy
+  criterion_metrics:
+    - criterion_mae
+reporting:
+  label_every_metric_as_observational: true
+  disclose_sample_size: true
+  disclose_partition: true
+  disclose_missing_cases: true
+  disclose_model_and_rubric_version: true
+  disclose_protocol_and_rulebook_version: true
+release_governance:
+  shadow_results_do_not_change_proposal_status: true
+  shadow_results_do_not_change_committee_decision: true
+  institutional_acceptance_gates_defined_externally: true

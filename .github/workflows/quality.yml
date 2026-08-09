@@ -1,0 +1,96 @@
+name: Repository quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend quality, tests, and release integrity
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: sqlite+aiosqlite:///./test.db
+      JWT_SECRET: test-secret-not-for-production
+      REDIS_URL: redis://127.0.0.1:6379/0
+      STORAGE_ENDPOINT: http://127.0.0.1:9000
+      CORS_ORIGINS: http://localhost:5173
+      ALLOWED_EXTENSIONS: .pdf,.docx,.txt
+      METRICS_ENABLED: "false"
+      PYTHONPATH: backend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: backend/requirements-dev.txt
+
+      - name: Install backend dependencies
+        run: python -m pip install -r backend/requirements-dev.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q backend/app backend/scripts scripts/quality
+
+      - name: Validate documentation links and images
+        run: python scripts/quality/validate_docs.py
+
+      - name: Ruff
+        run: ruff check backend/app backend/scripts backend/tests migrations/versions migrations/env.py scripts/quality
+
+      - name: Mypy
+        run: mypy backend/app
+
+      - name: Backend tests
+        run: pytest -q --cov=app --cov-report=term-missing --cov-fail-under=70
+
+      - name: Render migration chain offline
+        env:
+          DATABASE_URL: postgresql+asyncpg://release_user:release_pass@localhost:5432/mulyankan_release
+          ALLOWED_EXTENSIONS: .pdf,.docx,.txt
+        run: alembic -c migrations/alembic.ini upgrade head --sql > /tmp/mulyankan-migration.sql
+
+      - name: Validate Compose and Docker build contexts
+        run: python scripts/quality/validate_compose.py
+
+      - name: Build and independently verify controlled source release
+        run: |
+          python scripts/quality/create-release.py --source . --output-dir /tmp/mulyankan-release
+          python scripts/quality/verify-release.py --release-dir /tmp/mulyankan-release
+
+  frontend:
+    name: Frontend lint, build, and dependency audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.16.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate frontend Docker builder
+        run: docker build --target builder -f frontend/Dockerfile .
+
+      - name: Audit high-severity dependencies
+        run: npm audit --audit-level=high
