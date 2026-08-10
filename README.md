@@ -4,17 +4,37 @@
 
 **AI-assisted research proposal evaluation with evidence a reviewer can actually inspect.**
 
-## Live deployment
+## At a glance
+
+| | |
+|---|---|
+| **Use case** | Preliminary scrutiny of Ministry of Coal Science & Technology research proposals. |
+| **Evaluation** | Six categories, 23 criteria and a 100-mark governed rubric. |
+| **Decision design** | Hard eligibility rules and evidence gates run before advisory ML; people retain the final decision. |
+| **Traceability** | Criterion-level evidence, versioned proposals, review workflow and audit records. |
+| **Live frontend demo** | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
+| **Prototype walkthrough** | [Watch on YouTube](https://youtu.be/sQjZfEwkTu4) |
+
+> **Decision support only.** Mulyankan is not an autonomous proposal selector. Its bundled model uses brochure-derived weak supervision, not historical institutional decisions. Read [what the model proves and does not prove](#ml-model-what-it-proves-and-what-it-does-not).
+
+## Live frontend and prototype
 
 Open Mulyankan at [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/).
 
 Watch the [prototype demonstration on YouTube](https://youtu.be/sQjZfEwkTu4).
 
+The Vercel deployment hosts the browser client. The complete sign-in, upload and evaluation workflow also requires the separately configured API, database, storage and queue services described in [the free demo deployment guide](docs/FREE_DEMO_DEPLOYMENT.md).
+
+### 60-second judge path
+
+1. Watch the prototype walkthrough for the end-to-end story.
+2. In an environment with the backend services configured, open the live frontend and enter the **Submission Studio**.
+3. Follow a proposal through the document gate and inspect the evidence behind an advisory criterion score.
+4. Review the abstention case, then compare the advisory output with the expert-review and Validation Lab workflows.
+
 Mulyankan was built around a simple problem: a proposal score is not very useful if nobody can see **why** it was given. The system reads a proposal, checks scheme and eligibility rules, finds evidence for 23 evaluation criteria, produces an advisory score where evidence is strong enough, and keeps the final decision with human reviewers.
 
 The project is designed around the Ministry of Coal Science & Technology proposal workflow and the practical needs of technical review: traceability, repeatability, abstention when evidence is missing, and a clear audit trail.
-
-> Mulyankan is a decision-support tool, not an autonomous proposal selector. The bundled ML model uses brochure derived supervision based on Ministry of Coal guidelines available to the project.
 
 ## What we built
 
@@ -107,7 +127,7 @@ More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 - **Object storage:** MinIO / S3-compatible storage
 - **Document processing:** PDF/DOCX/TXT extraction with OCR fallback
 - **ML:** NumPy/scikit-learn criterion classifiers with hash-verified, pickle-free artifacts
-- **Deployment:** Docker Compose
+- **Deployment:** Docker Compose locally, Vercel frontend and a free Render demo blueprint
 - **Checks:** Pytest, Ruff, Mypy, ESLint, TypeScript build, release verification
 
 ## Run locally
@@ -165,6 +185,13 @@ python -m venv .venv
 # Linux/macOS: source .venv/bin/activate
 pip install -r backend/requirements-dev.txt
 PYTHONPATH=backend pytest -q
+```
+
+In Windows PowerShell, use:
+
+```powershell
+$env:PYTHONPATH = "backend"
+pytest -q
 ```
 
 ## Repository map
