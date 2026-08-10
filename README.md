@@ -8,6 +8,8 @@
 
 Open Mulyankan at [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/).
 
+Watch the [prototype demonstration on YouTube](https://youtu.be/sQjZfEwkTu4).
+
 Mulyankan was built around a simple problem: a proposal score is not very useful if nobody can see **why** it was given. The system reads a proposal, checks scheme and eligibility rules, finds evidence for 23 evaluation criteria, produces an advisory score where evidence is strong enough, and keeps the final decision with human reviewers.
 
 The project is designed around the Ministry of Coal Science & Technology proposal workflow and the practical needs of technical review: traceability, repeatability, abstention when evidence is missing, and a clear audit trail.
