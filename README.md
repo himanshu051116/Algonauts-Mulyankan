@@ -60,6 +60,7 @@ flowchart LR
 | Evaluation and evidence contract | [EVALUATION_SYSTEM.md](EVALUATION_SYSTEM.md) |
 | Architecture | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | Technical report | [docs/Mulyankan_Technical_Report.docx](docs/Mulyankan_Technical_Report.docx) |
+| HackMatrix 2026 project documentation | [docs/Mulyankan_HackMatrix_2026_Final.pdf](docs/Mulyankan_HackMatrix_2026_Final.pdf) |
 | Expert validation pilot | [docs/MULYANKAN_0.8_EXPERT_VALIDATION_SHADOW_PILOT.md](docs/MULYANKAN_0.8_EXPERT_VALIDATION_SHADOW_PILOT.md) |
 | Deployment configuration | [docs/FREE_DEMO_DEPLOYMENT.md](docs/FREE_DEMO_DEPLOYMENT.md) |
 | Automated quality checks | [.github/workflows/quality.yml](.github/workflows/quality.yml) |
