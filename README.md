@@ -23,6 +23,8 @@
 | **Traceability** | Criterion-level evidence, versioned proposals, review workflow and audit records. |
 | **Live frontend demo** | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
 | **Prototype walkthrough** | [Watch on YouTube](https://youtu.be/sQjZfEwkTu4) |
+| **HackMatrix documentation** | [Project documentation (PDF)](docs/Mulyankan_HackMatrix_2026_Final.pdf) |
+| **HackMatrix presentation** | [Project presentation (PPTX)](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx) |
 | **Quality checks** | [GitHub Actions workflow](https://github.com/himanshu051116/Algonauts-Mulyankan/actions/workflows/quality.yml) |
 
 > **Decision support only.** Mulyankan is not an autonomous proposal selector. Its bundled model uses brochure-derived weak supervision, not historical institutional decisions. Read [what the model proves and does not prove](#ml-model-what-it-proves-and-what-it-does-not).
