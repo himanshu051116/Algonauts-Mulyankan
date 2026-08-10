@@ -4,33 +4,65 @@
 
 **AI-assisted research proposal evaluation with evidence a reviewer can actually inspect.**
 
-## At a glance
+<div align="center">
+  <a href="https://mulyankan-seven.vercel.app/">
+    <img src="docs/assets/screenshots/scrutiny-dashboard.png" width="900" alt="Mulyankan scrutiny dashboard" />
+  </a>
+  <br />
+  <sub><em>Explore the hosted browser client, then follow the evidence trail behind each advisory assessment.</em></sub>
+</div>
+
+## Evidence, governance and delivery at a glance
 
 | | |
 |---|---|
 | **Use case** | Preliminary scrutiny of Ministry of Coal Science & Technology research proposals. |
 | **Evaluation** | Six categories, 23 criteria and a 100-mark governed rubric. |
-| **Decision design** | Hard eligibility rules and evidence gates run before advisory ML; people retain the final decision. |
+| **Evidence policy** | Hard eligibility rules and evidence gates run before advisory ML. |
+| **Human authority** | Reviewers, experts and committees retain the institutional decision. |
 | **Traceability** | Criterion-level evidence, versioned proposals, review workflow and audit records. |
 | **Live frontend demo** | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
 | **Prototype walkthrough** | [Watch on YouTube](https://youtu.be/sQjZfEwkTu4) |
+| **Quality checks** | [GitHub Actions workflow](https://github.com/himanshu051116/Algonauts-Mulyankan/actions/workflows/quality.yml) |
 
 > **Decision support only.** Mulyankan is not an autonomous proposal selector. Its bundled model uses brochure-derived weak supervision, not historical institutional decisions. Read [what the model proves and does not prove](#ml-model-what-it-proves-and-what-it-does-not).
 
-## Live frontend and prototype
+> **Public-sector safeguards.** A missing-evidence case can abstain instead of fabricating a total. All expert, conflict-handling and committee actions remain human-owned and auditable.
+
+## Live frontend, prototype and hosted-demo status
 
 Open Mulyankan at [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/).
 
 Watch the [prototype demonstration on YouTube](https://youtu.be/sQjZfEwkTu4).
 
-The Vercel deployment hosts the browser client. The complete sign-in, upload and evaluation workflow also requires the separately configured API, database, storage and queue services described in [the free demo deployment guide](docs/FREE_DEMO_DEPLOYMENT.md).
+> **Hosted-demo status:** Vercel serves the public browser client. The complete sign-in, upload and evaluation flow requires separately configured API, database, storage and queue services; see [the free demo deployment guide](docs/FREE_DEMO_DEPLOYMENT.md).
 
 ### 60-second judge path
 
+```mermaid
+flowchart LR
+    S["1. Submission"] --> G["2. Document gate"]
+    G --> E["3. Evidence and advisory assessment"]
+    E --> H["4. Human expert review"]
+    H --> A["5. Committee action and audit trail"]
+```
+
 1. Watch the prototype walkthrough for the end-to-end story.
-2. In an environment with the backend services configured, open the live frontend and enter the **Submission Studio**.
-3. Follow a proposal through the document gate and inspect the evidence behind an advisory criterion score.
-4. Review the abstention case, then compare the advisory output with the expert-review and Validation Lab workflows.
+2. In a configured environment, follow a proposal from **Submission Studio** through the document gate and into its criterion-level evidence.
+3. Review the abstention case, then compare the advisory output with the expert-review and Validation Lab workflows.
+
+## Submission package
+
+| Review item | Where to inspect it |
+|---|---|
+| Hosted browser client | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
+| Prototype walkthrough | [YouTube demonstration](https://youtu.be/sQjZfEwkTu4) |
+| Evaluation and evidence contract | [EVALUATION_SYSTEM.md](EVALUATION_SYSTEM.md) |
+| Architecture | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| Technical report | [docs/Mulyankan_Technical_Report.docx](docs/Mulyankan_Technical_Report.docx) |
+| Expert validation pilot | [docs/MULYANKAN_0.8_EXPERT_VALIDATION_SHADOW_PILOT.md](docs/MULYANKAN_0.8_EXPERT_VALIDATION_SHADOW_PILOT.md) |
+| Deployment configuration | [docs/FREE_DEMO_DEPLOYMENT.md](docs/FREE_DEMO_DEPLOYMENT.md) |
+| Automated quality checks | [.github/workflows/quality.yml](.github/workflows/quality.yml) |
 
 Mulyankan was built around a simple problem: a proposal score is not very useful if nobody can see **why** it was given. The system reads a proposal, checks scheme and eligibility rules, finds evidence for 23 evaluation criteria, produces an advisory score where evidence is strong enough, and keeps the final decision with human reviewers.
 
@@ -102,18 +134,21 @@ See [EVALUATION_SYSTEM.md](EVALUATION_SYSTEM.md) for the full scoring contract.
 ## Architecture
 
 ```mermaid
-flowchart LR
-    U[Applicant / Reviewer] --> F[React + Vite]
+flowchart TB
+    U[Applicant or reviewer] --> F[React + Vite browser client]
     F --> A[FastAPI]
     A --> P[(PostgreSQL)]
-    A --> R[(Redis)]
-    A --> S[(MinIO / S3)]
+    A --> S[(MinIO or S3 object storage)]
+    A --> R[(Redis queue)]
     R --> W[ARQ worker]
-    W --> D[Document extraction + gates]
-    D --> E[Rules + evidence + advisory ML]
-    E --> P
-    A --> H[Expert review + validation + audit]
-    H --> P
+    W --> X[Document extraction]
+    X --> G[Eligibility rules and evidence contracts]
+    G --> M[Advisory ML when evidence is sufficient]
+    G --> P
+    M --> P
+    A --> H[Expert review, validation and committee workflow]
+    H --> T[Audit events and version history]
+    T --> P
 ```
 
 More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
