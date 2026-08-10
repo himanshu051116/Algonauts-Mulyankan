@@ -12,7 +12,7 @@
   <sub><em>Explore the hosted browser client, then follow the evidence trail behind each advisory assessment.</em></sub>
 </div>
 
-## Evidence, governance and delivery at a glance
+## At a glance
 
 | | |
 |---|---|
@@ -21,25 +21,18 @@
 | **Evidence policy** | Hard eligibility rules and evidence gates run before advisory ML. |
 | **Human authority** | Reviewers, experts and committees retain the institutional decision. |
 | **Traceability** | Criterion-level evidence, versioned proposals, review workflow and audit records. |
-| **Live frontend demo** | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
+| **Live browser preview** | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
 | **Prototype walkthrough** | [Watch on YouTube](https://youtu.be/sQjZfEwkTu4) |
-| **HackMatrix documentation** | [Project documentation (PDF)](docs/Mulyankan_HackMatrix_2026_Final.pdf) |
-| **HackMatrix presentation** | [View presentation (PDF)](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pdf) · [Download editable PPTX](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx) |
-| **Quality checks** | [GitHub Actions workflow](https://github.com/himanshu051116/Algonauts-Mulyankan/actions/workflows/quality.yml) |
 
 > **Decision support only.** Mulyankan is not an autonomous proposal selector. Its bundled model uses brochure-derived weak supervision, not historical institutional decisions. Read [what the model proves and does not prove](#ml-model-what-it-proves-and-what-it-does-not).
 
 > **Public-sector safeguards.** A missing-evidence case can abstain instead of fabricating a total. All expert, conflict-handling and committee actions remain human-owned and auditable.
 
-## Live frontend, prototype and hosted-demo status
+## Judge quick path
 
-Open Mulyankan at [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/).
+> **What you can verify now:** the [prototype walkthrough](https://youtu.be/sQjZfEwkTu4), the [hosted browser preview](https://mulyankan-seven.vercel.app/), captured evidence and abstention outcomes below, and the versioned evaluation and validation documentation.
 
-Watch the [prototype demonstration on YouTube](https://youtu.be/sQjZfEwkTu4).
-
-> **Hosted-demo status:** Vercel serves the public browser client. The complete sign-in, upload and evaluation flow requires separately configured API, database, storage and queue services; see [the free demo deployment guide](docs/FREE_DEMO_DEPLOYMENT.md).
-
-### 60-second judge path
+> **Hosted-preview status:** Vercel serves the public browser client. The complete sign-in, upload and evaluation flow requires separately configured API, database, storage and queue services; see [the free demo deployment guide](docs/FREE_DEMO_DEPLOYMENT.md).
 
 ```mermaid
 flowchart LR
@@ -49,9 +42,22 @@ flowchart LR
     H --> A["5. Committee action and audit trail"]
 ```
 
-1. Watch the prototype walkthrough for the end-to-end story.
-2. In a configured environment, follow a proposal from **Submission Studio** through the document gate and into its criterion-level evidence.
-3. Review the abstention case, then compare the advisory output with the expert-review and Validation Lab workflows.
+1. Watch the [prototype walkthrough](https://youtu.be/sQjZfEwkTu4) for the end-to-end workflow.
+2. Open the [browser preview](https://mulyankan-seven.vercel.app/) for the reviewer-facing interface.
+3. Inspect the [evidence-backed assessment](#evidence-backed-advisory-assessment) and [abstention outcome](#abstention-when-evidence-is-insufficient), then read the [evaluation contract](EVALUATION_SYSTEM.md).
+4. Use the submission package below for the architecture, validation evidence, project documentation, presentation and CI checks.
+
+## Why this is not a black box
+
+Mulyankan separates three things that are often mixed together in proposal-scoring demos:
+
+- **Hard rules** answer questions such as whether a proposal is eligible to proceed.
+- **Evidence contracts** decide whether the document contains enough accepted evidence to score a criterion.
+- **Advisory ML** estimates a criterion score only after the evidence gate has been satisfied.
+
+If required evidence is missing, the system can abstain. An abstained evaluation does not pretend that a normal total is available. Human reviewers can disagree with the model at every stage.
+
+See [EVALUATION_SYSTEM.md](EVALUATION_SYSTEM.md) for the full scoring contract.
 
 ## Submission package
 
@@ -68,11 +74,11 @@ flowchart LR
 | Deployment configuration | [docs/FREE_DEMO_DEPLOYMENT.md](docs/FREE_DEMO_DEPLOYMENT.md) |
 | Automated quality checks | [.github/workflows/quality.yml](.github/workflows/quality.yml) |
 
+## What we built
+
 Mulyankan was built around a simple problem: a proposal score is not very useful if nobody can see **why** it was given. The system reads a proposal, checks scheme and eligibility rules, finds evidence for 23 evaluation criteria, produces an advisory score where evidence is strong enough, and keeps the final decision with human reviewers.
 
 The project is designed around the Ministry of Coal Science & Technology proposal workflow and the practical needs of technical review: traceability, repeatability, abstention when evidence is missing, and a clear audit trail.
-
-## What we built
 
 A reviewer can use Mulyankan to:
 
@@ -86,7 +92,7 @@ A reviewer can use Mulyankan to:
 - compare model output with blind expert reviews through the Validation Lab and Shadow Review Desk;
 - retain audit records for important workflow actions.
 
-## Demo flow
+## Review workflow in the app
 
 The quickest way to understand the project is to follow the same path a reviewer would use in the app:
 
@@ -105,11 +111,7 @@ The corresponding implementation lives mainly in `src/features/proposals/`, `src
 
 ## See it in action
 
-### Scrutiny dashboard
-
-The dashboard gives reviewers a portfolio-level view of proposals, current workflow state, recent activity, and items that need attention.
-
-![Mulyankan scrutiny dashboard](docs/assets/screenshots/scrutiny-dashboard.png)
+The linked dashboard at the top provides the portfolio view. The captured outcomes below show the two review-critical states: evidence-supported advice and abstention.
 
 ### Evidence-backed advisory assessment
 
@@ -122,18 +124,6 @@ When enough supporting evidence is available, Mulyankan shows category-level adv
 The system can withhold an advisory total instead of forcing a score when the proposal does not provide enough evidence for the required criteria.
 
 ![Mulyankan evidence-insufficient assessment](docs/assets/screenshots/evidence-insufficient-assessment.png)
-
-## Why the scoring is different
-
-Mulyankan separates three things that are often mixed together in proposal-scoring demos:
-
-- **Hard rules** answer questions such as whether a proposal is eligible to proceed.
-- **Evidence contracts** decide whether the document contains enough accepted evidence to score a criterion.
-- **Advisory ML** estimates a criterion score only after the evidence gate has been satisfied.
-
-If required evidence is missing, the system can abstain. An abstained evaluation does not pretend that a normal total is available. Human reviewers can disagree with the model at every stage.
-
-See [EVALUATION_SYSTEM.md](EVALUATION_SYSTEM.md) for the full scoring contract.
 
 ## Architecture
 
