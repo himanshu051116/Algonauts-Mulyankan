@@ -24,7 +24,7 @@
 | **Live frontend demo** | [mulyankan-seven.vercel.app](https://mulyankan-seven.vercel.app/) |
 | **Prototype walkthrough** | [Watch on YouTube](https://youtu.be/sQjZfEwkTu4) |
 | **HackMatrix documentation** | [Project documentation (PDF)](docs/Mulyankan_HackMatrix_2026_Final.pdf) |
-| **HackMatrix presentation** | [Project presentation (PPTX)](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx) |
+| **HackMatrix presentation** | [View presentation (PDF)](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pdf) · [Download editable PPTX](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx) |
 | **Quality checks** | [GitHub Actions workflow](https://github.com/himanshu051116/Algonauts-Mulyankan/actions/workflows/quality.yml) |
 
 > **Decision support only.** Mulyankan is not an autonomous proposal selector. Its bundled model uses brochure-derived weak supervision, not historical institutional decisions. Read [what the model proves and does not prove](#ml-model-what-it-proves-and-what-it-does-not).
@@ -63,7 +63,7 @@ flowchart LR
 | Architecture | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | Technical report | [docs/Mulyankan_Technical_Report.docx](docs/Mulyankan_Technical_Report.docx) |
 | HackMatrix 2026 project documentation | [docs/Mulyankan_HackMatrix_2026_Final.pdf](docs/Mulyankan_HackMatrix_2026_Final.pdf) |
-| HackMatrix 2026 presentation | [docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx) |
+| HackMatrix 2026 presentation | [View as PDF](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pdf) · [Download editable PPTX](docs/Mulyankan_HackMatrix_2026_Final_Presentation.pptx) |
 | Expert validation pilot | [docs/MULYANKAN_0.8_EXPERT_VALIDATION_SHADOW_PILOT.md](docs/MULYANKAN_0.8_EXPERT_VALIDATION_SHADOW_PILOT.md) |
 | Deployment configuration | [docs/FREE_DEMO_DEPLOYMENT.md](docs/FREE_DEMO_DEPLOYMENT.md) |
 | Automated quality checks | [.github/workflows/quality.yml](.github/workflows/quality.yml) |
